@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.repo.RepoScm_-DescriptorImpl plugin="repo@1.6">
+  <generation>1</generation>
+  <repoExecutable>repo</repoExecutable>
+</hudson.plugins.repo.RepoScm_-DescriptorImpl>
