@@ -1,0 +1,12 @@
+Started by an SCM change
+Building remotely on [8mha:AAAAoh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyeEgYx/eT83ILSktQi/eKS1NSCnNTkjMTiVACf23xIywAAAA==[0msteeplechase in workspace /home/mozilla/jenkins/workspace/expand-tests-linux64
+Copying http://172.16.141.50:8080/job/tests-nightly-linux64/lastSuccessfulBuild/artifact/firefox-34.0a1.en-US.linux-x86_64.tests.zip to firefox-34.0a1.en-US.linux-x86_64.tests.zip
+[expand-tests-linux64] $ /bin/sh -xe /tmp/hudson8711834380708691825.sh
++ export DEST=/home/mozilla/firefoxes/nightly/linux64
++ mkdir -p /home/mozilla/firefoxes/nightly/linux64/tests
++ cd /home/mozilla/firefoxes/nightly/linux64/tests
++ unzip -u -o /home/mozilla/jenkins/workspace/expand-tests-linux64/firefox-34.0a1.en-US.linux-x86_64.tests.zip
+Archive:  /home/mozilla/jenkins/workspace/expand-tests-linux64/firefox-34.0a1.en-US.linux-x86_64.tests.zip
+Warning: you have no plugins providing access control for builds, so falling back to legacy behavior of permitting any downstream builds to be triggered
+Triggering a new build of [8mha:AAAAnx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAy+EgYR/az8JH2gbaUVZia6uYnJ+cUV+gAyiqMmyQAAAA==[0mlinux64-macosx
+Finished: SUCCESS

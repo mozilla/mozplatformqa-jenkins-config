@@ -1,0 +1,11 @@
+[URLTrigger] A change within the response URL invocation ([8mha:AAAAkR+LCAAAAAAAAP9b85aBtbiIQSajNKU4P08vOT+vOD8nVc+jsiC1KCczL9svvyTVzHb1RttJBUeZGJg8GdhyUvPSSzJ8GJhLi3JKGIR8shLLEvVzEvPS9YNLijLz0q0rihik0IxzhtAgwxgggJGJgaGiAMhgBpoB1JeenlrknFhanOqYXJKZnwcA6A2a3ZcAAAA=[0mlog)
+Building remotely on [8mha:AAAAoh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyeEgYx/eT83ILSktQi/eKS1NSCnNTkjMTiVACf23xIywAAAA==[0msteeplechase in workspace /home/mozilla/jenkins/workspace/expand-tests-linux64
+[expand-tests-linux64] $ /bin/sh -xe /tmp/hudson5670642024080536378.sh
++ export DEST=/home/mozilla/firefoxes/nightly/linux64
++ mkdir -p /home/mozilla/firefoxes/nightly/linux64/tests
++ cd /home/mozilla/firefoxes/nightly/linux64/tests
++ unzip -u -o /home/mozilla/jenkins/workspace/expand-tests-linux64/firefox-34.0a1.en-US.linux-x86_64.tests.zip
+unzip:  cannot find or open /home/mozilla/jenkins/workspace/expand-tests-linux64/firefox-34.0a1.en-US.linux-x86_64.tests.zip, /home/mozilla/jenkins/workspace/expand-tests-linux64/firefox-34.0a1.en-US.linux-x86_64.tests.zip.zip or /home/mozilla/jenkins/workspace/expand-tests-linux64/firefox-34.0a1.en-US.linux-x86_64.tests.zip.ZIP.
+Build step 'Execute shell' marked build as failure
+Warning: you have no plugins providing access control for builds, so falling back to legacy behavior of permitting any downstream builds to be triggered
+Finished: FAILURE

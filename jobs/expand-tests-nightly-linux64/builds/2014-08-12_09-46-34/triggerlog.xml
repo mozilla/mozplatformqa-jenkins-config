@@ -1,0 +1,14 @@
+Polling started on Aug 12, 2014 8:04:04 AM
+Polling for the job expand-tests-linux64
+Looking nodes where the poll can be run.
+Looking for a candidate node to run the poll.
+Trying to find an eligible node with the assigned project label steeplechase.
+
+Polling remotely on steeplechase
+Invoking the url: 
+ http://172.16.141.50:8080/job/tests-nightly-linux64/lastSuccessfulBuild/artifact/firefox-34.0a1.en-US.linux-x86_64.tests.zip
+Inspecting the content
+The content of the URL has changed.
+
+Polling complete. Took 1 hr 40 min.
+Changes found. Scheduling a build.
