@@ -13,7 +13,7 @@
   <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
     <urls>
       <hudson.plugins.URLSCM.URLSCM_-URLTuple>
-        <urlString>http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/firefox-34.0a1.en-US.linux-x86_64.tests.zip</urlString>
+        <urlString>http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-aurora/firefox-33.0a2.en-US.linux-i686.tests.zip</urlString>
       </hudson.plugins.URLSCM.URLSCM_-URLTuple>
     </urls>
     <clearWorkspace>true</clearWorkspace>
@@ -27,7 +27,7 @@
       <spec>H/3 * * * *</spec>
       <entries>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/firefox-34.0a1.en-US.linux-x86_64.tests.zip</url>
+          <url>http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-aurora/firefox-33.0a2.en-US.linux-i686.tests.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>

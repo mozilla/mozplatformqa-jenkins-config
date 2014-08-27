@@ -7,7 +7,7 @@
   <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
     <urls>
       <hudson.plugins.URLSCM.URLSCM_-URLTuple>
-        <urlString>http://172.16.141.50:8080/job/firefox-nightly-linux64/lastSuccessfulBuild/artifact/releases/firefox-latest-nightly.en-US.linux-x86_64.tar.bz2</urlString>
+        <urlString>http://172.16.141.50:8080/job/firefox-aurora-linux64/lastSuccessfulBuild/artifact/releases/firefox-latest-aurora.en-US.linux-x86_64.tar.bz2</urlString>
       </hudson.plugins.URLSCM.URLSCM_-URLTuple>
     </urls>
     <clearWorkspace>true</clearWorkspace>
@@ -21,13 +21,10 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>rm -rf firefox-latest-nightly.en-US.linux-x86_64.tar.bz2
-curl http://172.16.141.50:8080/job/firefox-nightly-linux64/lastSuccessfulBuild/artifact/releases/firefox-latest-nightly.en-US.linux-x86_64.tar.bz2 &gt; firefox-latest-nightly.en-US.linux-x86_64.tar.bz2
-
-export DEST=/home/mozilla/firefoxes/nightly/linux64
+      <command>export DEST=/home/mozilla/firefoxes/aurora/linux64
 mkdir -p $DEST
 cd $DEST
-tar xvfj $WORKSPACE/firefox-latest-nightly.en-US.linux-x86_64.tar.bz2
+tar xvfj $WORKSPACE/firefox-latest-aurora.en-US.linux-x86_64.tar.bz2
 </command>
     </hudson.tasks.Shell>
   </builders>
