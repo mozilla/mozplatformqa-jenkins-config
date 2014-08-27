@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>1</daysToKeep>
+    <numToKeep>10</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>-1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="org.jenkinsci.plugins.multiplescms.MultiSCM" plugin="multiple-scms@0.3">
+    <scms>
+      <hudson.plugins.git.GitSCM plugin="git@2.2.4">
+        <configVersion>2</configVersion>
+        <userRemoteConfigs>
+          <hudson.plugins.git.UserRemoteConfig>
+            <url>https://github.com/mozilla/steeplechase.git</url>
+          </hudson.plugins.git.UserRemoteConfig>
+        </userRemoteConfigs>
+        <branches>
+          <hudson.plugins.git.BranchSpec>
+            <name>*/master</name>
+          </hudson.plugins.git.BranchSpec>
+        </branches>
+        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+        <submoduleCfg class="list"/>
+        <extensions>
+          <hudson.plugins.git.extensions.impl.CleanBeforeCheckout/>
+          <hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+            <relativeTargetDir>steeplechase</relativeTargetDir>
+          </hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+        </extensions>
+      </hudson.plugins.git.GitSCM>
+    </scms>
+  </scm>
+  <assignedNode>steeplechase</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <jenkins.triggers.ReverseBuildTrigger>
+      <spec></spec>
+      <upstreamProjects>expand-firefox-nightly-linux32,expand-tests-nightly-linux64</upstreamProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+    </jenkins.triggers.ReverseBuildTrigger>
+    <hudson.triggers.SCMTrigger>
+      <spec>H * * * *</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>mkdir -p `pwd`/logs
+python `pwd`/steeplechase/steeplechase/runsteeplechase.py --binary /home/mozilla/firefoxes/nightly/linux32/firefox/firefox --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $UBUNTU14_32_1:20701 --host2 $UBUNTU14_32_2:20701
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.girls.CordellWalkerRecorder plugin="girls@1.0.0">
+      <factGenerator/>
+    </hudson.plugins.girls.CordellWalkerRecorder>
+  </publishers>
+  <buildWrappers/>
+</project>
+
