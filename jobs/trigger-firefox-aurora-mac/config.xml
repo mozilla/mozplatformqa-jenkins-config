@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>master</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <org.jenkinsci.plugins.fstrigger.triggers.FileNameTrigger plugin="fstrigger@0.39">
+      <spec>H/3 * * * *</spec>
+      <fileInfo>
+        <org.jenkinsci.plugins.fstrigger.triggers.FileNameTriggerInfo>
+          <filePathPattern>/var/lib/jenkins/jobs/firefox-aurora-mac/lastSuccessful/archive/releases/firefox-latest-aurora.en-US.mac.tar.bz2</filePathPattern>
+          <strategy>LATEST</strategy>
+          <inspectingContentFile>false</inspectingContentFile>
+          <doNotCheckLastModificationDate>false</doNotCheckLastModificationDate>
+          <contentFileTypes/>
+        </org.jenkinsci.plugins.fstrigger.triggers.FileNameTriggerInfo>
+      </fileInfo>
+    </org.jenkinsci.plugins.fstrigger.triggers.FileNameTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders/>
+  <publishers>
+    <hudson.plugins.downstream__ext.DownstreamTrigger plugin="downstream-ext@1.8">
+      <childProjects>expand-firefox-aurora-mac</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+      <thresholdStrategy>AND_HIGHER</thresholdStrategy>
+      <onlyIfSCMChanges>false</onlyIfSCMChanges>
+      <onlyIfLocalSCMChanges>false</onlyIfLocalSCMChanges>
+    </hudson.plugins.downstream__ext.DownstreamTrigger>
+  </publishers>
+  <buildWrappers/>
+</project>

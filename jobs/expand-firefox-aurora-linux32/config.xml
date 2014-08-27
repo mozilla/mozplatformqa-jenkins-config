@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
+    <urls>
+      <hudson.plugins.URLSCM.URLSCM_-URLTuple>
+        <urlString>http://172.16.141.50:8080/job/firefox-aurora-linux32/lastSuccessfulBuild/artifact/releases/firefox-latest-aurora.en-US.linux-i686.tar.bz2</urlString>
+      </hudson.plugins.URLSCM.URLSCM_-URLTuple>
+    </urls>
+    <clearWorkspace>true</clearWorkspace>
+  </scm>
+  <assignedNode>steeplechase</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>export DEST=/home/mozilla/firefoxes/aurora/linux32
+mkdir -p $DEST
+cd $DEST
+tar xvfj $WORKSPACE/firefox-latest-aurora.en-US.linux-i686.tar.bz2
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
