@@ -7,7 +7,7 @@
   <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
     <urls>
       <hudson.plugins.URLSCM.URLSCM_-URLTuple>
-        <urlString>$JENKINS_URL/job/tests-aurora-linux64/lastSuccessfulBuild/artifact/firefox-33.0a2.en-US.linux-i686.tests.zip</urlString>
+        <urlString>http://172.16.141.50:8080/job/tests-aurora-linux64/lastSuccessfulBuild/artifact/firefox-33.0a2.en-US.linux-i686.tests.zip</urlString>
       </hudson.plugins.URLSCM.URLSCM_-URLTuple>
     </urls>
     <clearWorkspace>true</clearWorkspace>
@@ -22,7 +22,7 @@
       <spec>H/3 * * * *</spec>
       <entries>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>$JENKINS_URL/job/tests-aurora-linux64/lastSuccessfulBuild/artifact/firefox-33.0a2.en-US.linux-i686.tests.zip</url>
+          <url>http://172.16.141.50:8080/job/tests-aurora-linux64/lastSuccessfulBuild/artifact/firefox-33.0a2.en-US.linux-i686.tests.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -47,7 +47,7 @@ unzip -u -o $WORKSPACE/firefox-33.0a2.en-US.linux-i686.tests.zip</command>
   </builders>
   <publishers>
     <hudson.tasks.BuildTrigger>
-      <childProjects>aurora-linux64-linux64,nightly-linux64-aurora-linux64</childProjects>
+      <childProjects></childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>

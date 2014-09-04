@@ -7,7 +7,7 @@
   <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
     <urls>
       <hudson.plugins.URLSCM.URLSCM_-URLTuple>
-        <urlString>$JENKINS_URL/job/tests-nightly-linux64/lastSuccessfulBuild/artifact/firefox-34.0a1.en-US.linux-x86_64.tests.zip</urlString>
+        <urlString>http://172.16.141.50:8080/job/tests-nightly-linux64/lastSuccessfulBuild/artifact/firefox-34.0a1.en-US.linux-x86_64.tests.zip</urlString>
       </hudson.plugins.URLSCM.URLSCM_-URLTuple>
     </urls>
     <clearWorkspace>true</clearWorkspace>
@@ -22,7 +22,7 @@
       <spec>H/3 * * * *</spec>
       <entries>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>$JENKINS_URL/job/tests-nightly-linux64/lastSuccessfulBuild/artifact/firefox-34.0a1.en-US.linux-x86_64.tests.zip</url>
+          <url>http://172.16.141.50:8080/job/tests-nightly-linux64/lastSuccessfulBuild/artifact/firefox-34.0a1.en-US.linux-x86_64.tests.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
