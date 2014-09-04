@@ -42,7 +42,7 @@
       <command>export DEST=/home/mozilla/firefoxes/aurora/linux64
 mkdir -p $DEST/tests
 cd $DEST/tests
-unzip -u -o $WORKSPACE/firefox-33.0a2.en-US.linux-i686.tests.zip</command>
+unzip -u -o $WORKSPACE/firefox-34.0a2.en-US.linux-i686.tests.zip</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
