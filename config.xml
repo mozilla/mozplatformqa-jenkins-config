@@ -20,6 +20,18 @@
   <clouds/>
   <slaves>
     <slave>
+      <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
+        <description>
+          <holder>
+            <owner>hudson.slaves.Messages</owner>
+          </holder>
+          <key>SlaveComputer.DisconnectedBy</key>
+          <args>
+            <string>anonymous</string>
+            <string></string>
+          </args>
+        </description>
+      </temporaryOfflineCause>
       <name>steeplechase</name>
       <description></description>
       <remoteFS>/home/mozilla/jenkins</remoteFS>
