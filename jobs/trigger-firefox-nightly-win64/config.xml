@@ -15,7 +15,7 @@
       <spec>H/3 * * * *</spec>
       <fileInfo>
         <org.jenkinsci.plugins.fstrigger.triggers.FileNameTriggerInfo>
-          <filePathPattern>/var/lib/jenkins/jobs/firefox-nightly-win32/lastSuccessful/archive/releases/firefox-latest-nightly.en-US.win32.zip</filePathPattern>
+          <filePathPattern>/var/lib/jenkins/jobs/firefox-nightly-win64/lastSuccessful/archive/releases/firefox-latest-nightly.en-US.win64-x86_64.zip</filePathPattern>
           <strategy>LATEST</strategy>
           <inspectingContentFile>false</inspectingContentFile>
           <doNotCheckLastModificationDate>false</doNotCheckLastModificationDate>
@@ -28,7 +28,7 @@
   <builders/>
   <publishers>
     <hudson.plugins.downstream__ext.DownstreamTrigger plugin="downstream-ext@1.8">
-      <childProjects>expand-firefox-nightly-win32</childProjects>
+      <childProjects>expand-firefox-nightly-win64</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
