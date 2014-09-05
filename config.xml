@@ -264,6 +264,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[8]/jobNames/comparator"/>
+        <string>nightly-win81_64-win81_64</string>
       </jobNames>
       <jobFilters/>
       <columns>
