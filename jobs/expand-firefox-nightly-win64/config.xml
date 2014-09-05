@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
+    <urls>
+      <hudson.plugins.URLSCM.URLSCM_-URLTuple>
+        <urlString>http://172.16.141.50:8080/view/firefox/job/firefox-nightly-win32/lastSuccessfulBuild/artifact/releases/firefox-latest-nightly.en-US.win32.zip</urlString>
+      </hudson.plugins.URLSCM.URLSCM_-URLTuple>
+    </urls>
+    <clearWorkspace>true</clearWorkspace>
+  </scm>
+  <assignedNode>steeplechase</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>export DEST=/home/mozilla/firefoxes/nightly/win32
+mkdir -p $DEST
+cd $DEST
+unzip -u $WORKSPACE/firefox-latest-nightly.en-US.win32.zip
+
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
