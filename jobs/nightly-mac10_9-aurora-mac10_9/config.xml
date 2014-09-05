@@ -43,7 +43,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>expand-firefox-aurora-mac,expand-tests-aurora-linux64,expand-firefox-nightly-mac,</upstreamProjects>
+      <upstreamProjects>expand-firefox-aurora-mac,expand-tests-aurora-linux64,expand-firefox-nightly-mac</upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
