@@ -7,7 +7,7 @@
   <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
     <urls>
       <hudson.plugins.URLSCM.URLSCM_-URLTuple>
-        <urlString>http://172.16.141.50:8080/job/firefox-nightly-linux32/lastSuccessfulBuild/artifact/releases/firefox-latest-nightly.en-US.linux-i686.tar.bz2</urlString>
+        <urlString>http://172.16.141.50:8080/view/firefox/job/firefox-nightly-win32/lastSuccessfulBuild/artifact/releases/firefox-latest-nightly.en-US.win32.zip</urlString>
       </hudson.plugins.URLSCM.URLSCM_-URLTuple>
     </urls>
     <clearWorkspace>true</clearWorkspace>
@@ -21,10 +21,11 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>export DEST=/home/mozilla/firefoxes/nightly/linux32
+      <command>export DEST=/home/mozilla/firefoxes/nightly/win32
 mkdir -p $DEST
 cd $DEST
-tar xvfj $WORKSPACE/firefox-latest-nightly.en-US.linux-i686.tar.bz2
+unzip -u $WORKSPACE/firefox-latest-nightly.en-US.win32.zip
+
 </command>
     </hudson.tasks.Shell>
   </builders>
