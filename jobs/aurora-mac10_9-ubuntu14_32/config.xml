@@ -12,7 +12,7 @@
   <properties/>
   <scm class="org.jenkinsci.plugins.multiplescms.MultiSCM" plugin="multiple-scms@0.3">
     <scms>
-      <hudson.plugins.git.GitSCM plugin="git@2.2.4">
+      <hudson.plugins.git.GitSCM plugin="git@2.2.5">
         <configVersion>2</configVersion>
         <userRemoteConfigs>
           <hudson.plugins.git.UserRemoteConfig>
@@ -43,7 +43,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>expand-firefox-aurora-mac,expand-firefox-aurora-linux32,expand-tests-aurora-linux64,</upstreamProjects>
+      <upstreamProjects>expand-firefox-aurora-mac,expand-firefox-aurora-linux32,expand-tests-aurora-linux64</upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -70,4 +70,3 @@ python `pwd`/steeplechase/steeplechase/runsteeplechase.py --binary /home/mozilla
   </publishers>
   <buildWrappers/>
 </project>
-
