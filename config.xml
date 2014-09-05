@@ -252,7 +252,7 @@
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
       </columns>
-      <includeRegex>.*win32.*|.*win8132.*</includeRegex>
+      <includeRegex>.*win32.*|.*win81_32.*</includeRegex>
       <recurse>false</recurse>
     </listView>
   </views>
