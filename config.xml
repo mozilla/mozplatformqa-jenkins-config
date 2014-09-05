@@ -218,6 +218,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
+        <string>firefox-nightly-win32</string>
       </jobNames>
       <jobFilters/>
       <columns>
