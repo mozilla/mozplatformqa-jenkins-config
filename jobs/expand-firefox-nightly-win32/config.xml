@@ -24,7 +24,7 @@
       <command>export DEST=/home/mozilla/firefoxes/nightly/win32
 mkdir -p $DEST
 cd $DEST
-unzip -u $WORKSPACE/firefox-latest-nightly.en-US.win32.zip
+unzip -u -o $WORKSPACE/firefox-latest-nightly.en-US.win32.zip
 
 </command>
     </hudson.tasks.Shell>
