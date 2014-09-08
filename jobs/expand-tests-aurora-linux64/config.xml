@@ -22,7 +22,7 @@
       <spec>H/3 * * * *</spec>
       <entries>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://172.16.141.50:8080/job/tests-aurora-linux64/lastSuccessfulBuild/artifact/firefox-33.0a2.en-US.linux-i686.tests.zip</url>
+          <url>http://172.16.141.50:8080/job/tests-aurora-linux64/lastSuccessfulBuild/artifact/firefox-34.0a2.en-US.linux-i686.tests.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
