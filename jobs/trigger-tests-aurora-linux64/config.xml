@@ -15,7 +15,7 @@
       <spec>H/3 * * * *</spec>
       <fileInfo>
         <org.jenkinsci.plugins.fstrigger.triggers.FileNameTriggerInfo>
-          <filePathPattern>/var/lib/jenkins/jobs/tests-nightly-linux64/lastSuccessful/archive/releases/firefox-latest-nightly.en-US.linux-x86_64.tests.zip</filePathPattern>
+          <filePathPattern>/var/lib/jenkins/jobs/tests-nightly-linux64/lastSuccessful/archive/releases/firefox-latest-aurora.en-US.linux-x86_64.tests.zip</filePathPattern>
           <strategy>LATEST</strategy>
           <inspectingContentFile>false</inspectingContentFile>
           <doNotCheckLastModificationDate>false</doNotCheckLastModificationDate>
@@ -28,7 +28,7 @@
   <builders/>
   <publishers>
     <hudson.plugins.downstream__ext.DownstreamTrigger plugin="downstream-ext@1.8">
-      <childProjects>expand-tests-nightly-linux64</childProjects>
+      <childProjects>expand-tests-aurora-linux64</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
