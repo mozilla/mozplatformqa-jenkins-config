@@ -196,6 +196,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
+        <string>trigger-tests-nightly-linux64</string>
       </jobNames>
       <jobFilters/>
       <columns>
