@@ -7,7 +7,7 @@
   <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
     <urls>
       <hudson.plugins.URLSCM.URLSCM_-URLTuple>
-        <urlString>http://172.16.141.50:8080/job/tests-aurora-linux64/lastSuccessfulBuild/artifact/firefox-34.0a2.en-US.linux-i686.tests.zip</urlString>
+        <urlString>http://172.16.141.50:8080/view/tests/job/tests-aurora-linux64/lastSuccessfulBuild/artifact/releases/firefox-latest-aurora.en-US.linux-x86_64.tests.zip</urlString>
       </hudson.plugins.URLSCM.URLSCM_-URLTuple>
     </urls>
     <clearWorkspace>true</clearWorkspace>
@@ -17,44 +17,16 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers>
-    <org.jenkinsci.plugins.urltrigger.URLTrigger plugin="urltrigger@0.37">
-      <spec>H/3 * * * *</spec>
-      <entries>
-        <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://172.16.141.50:8080/job/tests-aurora-linux64/lastSuccessfulBuild/artifact/firefox-34.0a2.en-US.linux-i686.tests.zip</url>
-          <proxyActivated>false</proxyActivated>
-          <checkStatus>false</checkStatus>
-          <statusCode>200</statusCode>
-          <timeout>300</timeout>
-          <checkETag>false</checkETag>
-          <checkLastModificationDate>true</checkLastModificationDate>
-          <inspectingContent>false</inspectingContent>
-          <contentTypes/>
-        </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-      </entries>
-      <labelRestriction>false</labelRestriction>
-    </org.jenkinsci.plugins.urltrigger.URLTrigger>
-  </triggers>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
       <command>export DEST=/home/mozilla/firefoxes/aurora/linux64
 mkdir -p $DEST/tests
 cd $DEST/tests
-unzip -u -o $WORKSPACE/firefox-34.0a2.en-US.linux-i686.tests.zip</command>
+unzip -u -o $WORKSPACE/firefox-latest-aurora.en-US.linux-x86_64.tests.zip</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.BuildTrigger>
-      <childProjects></childProjects>
-      <threshold>
-        <name>SUCCESS</name>
-        <ordinal>0</ordinal>
-        <color>BLUE</color>
-        <completeBuild>true</completeBuild>
-      </threshold>
-    </hudson.tasks.BuildTrigger>
-  </publishers>
+  <publishers/>
   <buildWrappers/>
 </project>
