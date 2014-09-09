@@ -15,7 +15,7 @@
       <spec>H/3 * * * *</spec>
       <fileInfo>
         <org.jenkinsci.plugins.fstrigger.triggers.FileNameTriggerInfo>
-          <filePathPattern>/var/lib/jenkins/jobs/firefox-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64-x86_64.zip</filePathPattern>
+          <filePathPattern>/var/lib/jenkins/jobs/firefox-nightly-win64/workspace/releases/firefox-latest-nightly.en-US.win64-x86_64.zip</filePathPattern>
           <strategy>LATEST</strategy>
           <inspectingContentFile>false</inspectingContentFile>
           <doNotCheckLastModificationDate>false</doNotCheckLastModificationDate>
