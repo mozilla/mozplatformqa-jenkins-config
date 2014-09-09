@@ -283,7 +283,7 @@
     </listView>
     <listView>
       <owner class="hudson" reference="../../.."/>
-      <name>trigger-tests-aurora-linux64</name>
+      <name>trigger</name>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
