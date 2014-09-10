@@ -42,14 +42,6 @@
 </command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.tasks.ArtifactArchiver>
-      <artifacts>**/firefox-latest-nightly.en-US.mac.*</artifacts>
-      <allowEmptyArchive>false</allowEmptyArchive>
-      <onlyIfSuccessful>false</onlyIfSuccessful>
-      <fingerprint>false</fingerprint>
-      <defaultExcludes>true</defaultExcludes>
-    </hudson.tasks.ArtifactArchiver>
-  </publishers>
+  <publishers/>
   <buildWrappers/>
 </project>
