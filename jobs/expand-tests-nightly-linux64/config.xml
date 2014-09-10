@@ -24,8 +24,7 @@
       <command>export DEST=/home/mozilla/firefoxes/nightly/linux64
 mkdir -p $DEST/tests
 cd $DEST/tests
-rm -rf *
-unzip $WORKSPACE/firefox-latest-nightly.en-US.linux-x86_64.tests.zip</command>
+unzip -u -o $WORKSPACE/firefox-latest-nightly.en-US.linux-x86_64.tests.zip</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
