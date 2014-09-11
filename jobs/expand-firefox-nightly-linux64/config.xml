@@ -7,7 +7,7 @@
   <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
     <urls>
       <hudson.plugins.URLSCM.URLSCM_-URLTuple>
-        <urlString>http://172.16.141.50:8080/job/firefox-nightly-linux64/lastSuccessfulBuild/artifact/releases/firefox-latest-nightly.en-US.linux-x86_64.tar.bz2</urlString>
+        <urlString>http://172.16.141.50:8080/view/firefox/job/firefox-nightly-linux64/ws/releases/firefox-latest-nightly.en-US.linux-x86_64.tar.bz2</urlString>
       </hudson.plugins.URLSCM.URLSCM_-URLTuple>
     </urls>
     <clearWorkspace>true</clearWorkspace>
