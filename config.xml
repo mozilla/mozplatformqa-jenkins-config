@@ -59,7 +59,7 @@
         <port>22</port>
         <credentialsId>835d167a-8191-488f-870d-a68e480adb83</credentialsId>
       </launcher>
-      <label>mac steeplechase macosx</label>
+      <label>mac macosx</label>
       <nodeProperties/>
       <userId>anonymous</userId>
     </slave>
