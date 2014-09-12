@@ -71,11 +71,11 @@
       <mode>NORMAL</mode>
       <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
       <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
-        <host></host>
+        <host>172.16.141.57</host>
         <port>22</port>
         <credentialsId>e041022d-b95b-4567-b769-99358fa3f665</credentialsId>
       </launcher>
-      <label></label>
+      <label>steeplechase</label>
       <nodeProperties/>
       <userId>anonymous</userId>
     </slave>
