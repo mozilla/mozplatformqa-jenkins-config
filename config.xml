@@ -48,22 +48,6 @@
       <userId>anonymous</userId>
     </slave>
     <slave>
-      <name>negatus-macosx1</name>
-      <description></description>
-      <remoteFS>/Users/mozilla/jenkins</remoteFS>
-      <numExecutors>1</numExecutors>
-      <mode>NORMAL</mode>
-      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
-      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
-        <host>172.16.141.57</host>
-        <port>22</port>
-        <credentialsId>e041022d-b95b-4567-b769-99358fa3f665</credentialsId>
-      </launcher>
-      <label>mac</label>
-      <nodeProperties/>
-      <userId>anonymous</userId>
-    </slave>
-    <slave>
       <name>real mac</name>
       <description></description>
       <remoteFS>/Users/spolk/jenkins</remoteFS>
