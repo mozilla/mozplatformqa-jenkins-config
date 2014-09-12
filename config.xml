@@ -63,6 +63,22 @@
       <nodeProperties/>
       <userId>anonymous</userId>
     </slave>
+    <slave>
+      <name>real mac</name>
+      <description></description>
+      <remoteFS>/Users/spolk/jenkins</remoteFS>
+      <numExecutors>1</numExecutors>
+      <mode>NORMAL</mode>
+      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
+        <host>172.16.141.1</host>
+        <port>22</port>
+        <credentialsId>835d167a-8191-488f-870d-a68e480adb83</credentialsId>
+      </launcher>
+      <label></label>
+      <nodeProperties/>
+      <userId>anonymous</userId>
+    </slave>
   </slaves>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
