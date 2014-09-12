@@ -109,7 +109,7 @@
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
       </columns>
-      <includeRegex>.*nightly.*</includeRegex>
+      <includeRegex>^nightly.*</includeRegex>
       <recurse>false</recurse>
     </listView>
     <listView>
