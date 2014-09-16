@@ -48,6 +48,16 @@
       <userId>anonymous</userId>
     </slave>
     <slave>
+      <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
+        <description>
+          <holder reference="../../../../slave/temporaryOfflineCause/description/holder"/>
+          <key>SlaveComputer.DisconnectedBy</key>
+          <args>
+            <string>anonymous</string>
+            <string></string>
+          </args>
+        </description>
+      </temporaryOfflineCause>
       <name>real mac</name>
       <description></description>
       <remoteFS>/Users/spolk/jenkins</remoteFS>
