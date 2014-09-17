@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson.tasks.Mailer_-DescriptorImpl plugin="mailer@1.11">
   <defaultSuffix>@mozilla.com</defaultSuffix>
+  <hudsonUrl>http://172.16.141.50:8080/</hudsonUrl>
   <smtpAuthUsername>spolk@mozilla.com</smtpAuthUsername>
   <smtpAuthPassword>aov7/G+mgrxWgiDAN3bop3ZHpScrTkIl6Z9oJZvkhwI=</smtpAuthPassword>
   <replyToAddress>spolk@mozilla.com</replyToAddress>
