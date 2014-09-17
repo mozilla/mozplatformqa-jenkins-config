@@ -3,7 +3,7 @@
   <adminAddress>address not configured yet &lt;nobody&gt;</adminAddress>
   <useSsl>false</useSsl>
   <defaultContentType>text/plain</defaultContentType>
-  <defaultSubject>$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!</defaultSubject>
+  <defaultSubject>[Jenkins-Home] $PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS</defaultSubject>
   <defaultBody>$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:&#xd;
 &#xd;
 Check console output at $BUILD_URL to view the results.&#xd;
@@ -13,8 +13,8 @@ Log excerpt:&#xd;
 $BUILD_LOG</defaultBody>
   <defaultPresendScript></defaultPresendScript>
   <maxAttachmentSize>-1</maxAttachmentSize>
-  <recipientList>spolk@mozilla.org</recipientList>
-  <defaultReplyTo>spolk@mozilla.org</defaultReplyTo>
+  <recipientList>spolk@mozilla.com</recipientList>
+  <defaultReplyTo>spolk@mozilla.com</defaultReplyTo>
   <excludedCommitters></excludedCommitters>
   <overrideGlobalSettings>false</overrideGlobalSettings>
   <listId>Platform-QA-Jenkins</listId>
