@@ -120,6 +120,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
+        <string>aurora-mac10_9-win81_32_64</string>
       </jobNames>
       <jobFilters/>
       <columns>
