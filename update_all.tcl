@@ -13,22 +13,18 @@ foreach file $job_files {
     set contents [read $fd]
     close $fd
 
-    if {[regexp {ExtendedEmailPublisher} $contents match]} {
-        puts -nonewline "already there..."
-    } else {
-        set newcontents $contents
-        if {[regsub {(<publishers>.*)(\n[\s]*</publishers>)} $newcontents \\1\n$snippet\\2 newcontents]} {
-            puts -nonewline "existing publishers..."
-        }
-        if {[regsub {<publishers/>} $newcontents "<publishers>\n$snippet\n  </publishers>" newcontents]} {
-            puts -nonewline "blank publishers..."
-        }
-        if {![string equal $contents $newcontents]} {
-            set fd [open $file w]
-            puts -nonewline $fd $newcontents
-            puts -nonewline "Replaced..."
-            close $fd
-        }
+    set newcontents $contents
+    if {[regsub -all {<hudson.plugins.emailext.plugins.recipients.DevelopersRecipientProvider/>[\s]*<hudson.plugins.emailext.plugins.recipients.[Ll]istRecipientProvider/>} $newcontents <hudson.plugins.emailext.plugins.recipients.ListRecipientProvider/> newcontents]} {
+        puts -nonewline "two recipients..."
+    }
+    if {[regsub {<hudson.plugins.emailext.plugins.recipients.DevelopersRecipientProvider/>} $newcontents <hudson.plugins.emailext.plugins.recipients.ListRecipientProvider/> newcontents]} {
+        puts -nonewline "one recipient..."
+    }
+    if {![string equal $contents $newcontents]} {
+        set fd [open $file w]
+        puts -nonewline $fd $newcontents
+        puts -nonewline "Replaced..."
+        close $fd
     }
 
     puts "done"
