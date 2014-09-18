@@ -7,7 +7,7 @@
   <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
     <urls>
       <hudson.plugins.URLSCM.URLSCM_-URLTuple>
-        <urlString>http://172.16.141.50:8080/view/firefox/job/firefox-nightly-win32/ws/releases/firefox-latest-nightly.en-US.win32.zip</urlString>
+        <urlString>http://172.16.141.50:8080/view/firefox/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip</urlString>
       </hudson.plugins.URLSCM.URLSCM_-URLTuple>
     </urls>
     <clearWorkspace>true</clearWorkspace>
@@ -21,10 +21,10 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>export DEST=/home/mozilla/firefoxes/nightly/win32
+      <command>export DEST=/home/mozilla/firefoxes/aurora/win32
 mkdir -p $DEST
 cd $DEST
-unzip -u -o $WORKSPACE/firefox-latest-nightly.en-US.win32.zip
+unzip -u -o $WORKSPACE/firefox-latest-aurora.en-US.win32.zip
 
 </command>
     </hudson.tasks.Shell>
