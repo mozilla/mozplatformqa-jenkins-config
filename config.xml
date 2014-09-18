@@ -122,6 +122,7 @@
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
         <string>aurora-mac10_9-win81_32_64</string>
         <string>aurora-ubuntu14_32-win81_32_64</string>
+        <string>aurora-ubuntu14_64-win61_32_64</string>
       </jobNames>
       <jobFilters/>
       <columns>
