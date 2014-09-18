@@ -17,7 +17,7 @@ $BUILD_LOG</defaultBody>
   <defaultReplyTo>spolk@mozilla.com</defaultReplyTo>
   <excludedCommitters></excludedCommitters>
   <overrideGlobalSettings>false</overrideGlobalSettings>
-  <listId>Platform-QA-Jenkins</listId>
+  <listId>Platform-QA-Jenkins-Home</listId>
   <precedenceBulk>true</precedenceBulk>
   <debugMode>false</debugMode>
   <enableSecurity>false</enableSecurity>
