@@ -43,7 +43,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>expand-firefox-nightly-mac,expand-tests-nightly-linux64,expand-firefox-nightly-win32</upstreamProjects>
+      <upstreamProjects>expand-firefox-aurora-mac,expand-tests-aurora-linux64,expand-firefox-aurora-win32, </upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -60,7 +60,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>mkdir -p `pwd`/logs
-python `pwd`/steeplechase/steeplechase/runsteeplechase.py --binary /home/mozilla/firefoxes/nightly/macosx/FirefoxNightly.app/Contents/MacOS/firefox --binary2 /home/mozilla/firefoxes/nightly/win32/firefox/firefox.exe --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MAC_10_9_1:20701 --host2 $WIN81_64_1:20701
+python `pwd`/steeplechase/steeplechase/runsteeplechase.py --binary /home/mozilla/firefoxes/aurora/macosx/FirefoxNightly.app/Contents/MacOS/firefox --binary2 /home/mozilla/firefoxes/aurora/win32/firefox/firefox.exe --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MAC_10_9_1:20701 --host2 $WIN81_64_1:20701
 </command>
     </hudson.tasks.Shell>
   </builders>
