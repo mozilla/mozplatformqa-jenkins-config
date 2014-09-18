@@ -65,9 +65,6 @@ python `pwd`/steeplechase/steeplechase/runsteeplechase.py --binary /home/mozilla
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.plugins.girls.CordellWalkerRecorder plugin="girls@1.0.0">
-      <factGenerator/>
-    </hudson.plugins.girls.CordellWalkerRecorder>
   </publishers>
   <buildWrappers/>
 </project>
