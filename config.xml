@@ -123,6 +123,7 @@
         <string>aurora-mac10_9-win81_32_64</string>
         <string>aurora-ubuntu14_32-win81_32_64</string>
         <string>aurora-ubuntu14_64-win61_32_64</string>
+        <string>aurora-win81_32_64-mac10_9</string>
       </jobNames>
       <jobFilters/>
       <columns>
