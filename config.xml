@@ -126,6 +126,7 @@
         <string>aurora-win81_32_64-mac10_9</string>
         <string>aurora-win81_32_64-ubuntu14_32</string>
         <string>aurora-win81_32_64-ubuntu14_64</string>
+        <string>aurora-win81_32_64-win81_32_64</string>
       </jobNames>
       <jobFilters/>
       <columns>
