@@ -237,7 +237,6 @@
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
         <string>firefox-aurora-win32</string>
-        <string>firefox-aurora-win64</string>
         <string>firefox-nightly-win32</string>
       </jobNames>
       <jobFilters/>
