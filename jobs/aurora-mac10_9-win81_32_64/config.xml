@@ -65,11 +65,6 @@ python `pwd`/steeplechase/steeplechase/runsteeplechase.py --binary /home/mozilla
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.tasks.Mailer plugin="mailer@1.11">
-      <recipients>spolk@mozilla.com</recipients>
-      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
-      <sendToIndividuals>false</sendToIndividuals>
-    </hudson.tasks.Mailer>
     <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.38.2">
       <recipientList>$DEFAULT_RECIPIENTS</recipientList>
       <configuredTriggers>
