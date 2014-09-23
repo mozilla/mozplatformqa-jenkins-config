@@ -19,6 +19,66 @@
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds/>
   <slaves>
+    <slave>
+      <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
+        <description>
+          <holder>
+            <owner>hudson.slaves.Messages</owner>
+          </holder>
+          <key>SlaveComputer.DisconnectedBy</key>
+          <args>
+            <string>anonymous</string>
+            <string></string>
+          </args>
+        </description>
+      </temporaryOfflineCause>
+      <name>steeplechase</name>
+      <description></description>
+      <remoteFS>/home/mozilla/jenkins</remoteFS>
+      <numExecutors>1</numExecutors>
+      <mode>NORMAL</mode>
+      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
+        <host>172.16.141.51</host>
+        <port>22</port>
+        <credentialsId>e041022d-b95b-4567-b769-99358fa3f665</credentialsId>
+      </launcher>
+      <label></label>
+      <nodeProperties/>
+      <userId>anonymous</userId>
+    </slave>
+    <slave>
+      <name>real mac</name>
+      <description></description>
+      <remoteFS>/Users/spolk/jenkins</remoteFS>
+      <numExecutors>1</numExecutors>
+      <mode>NORMAL</mode>
+      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
+        <host>172.16.141.1</host>
+        <port>22</port>
+        <credentialsId>835d167a-8191-488f-870d-a68e480adb83</credentialsId>
+      </launcher>
+      <label>mac macosx</label>
+      <nodeProperties/>
+      <userId>anonymous</userId>
+    </slave>
+    <slave>
+      <name>mac steeplechase</name>
+      <description></description>
+      <remoteFS>/Users/mozilla/jenkins</remoteFS>
+      <numExecutors>1</numExecutors>
+      <mode>NORMAL</mode>
+      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
+        <host>172.16.141.57</host>
+        <port>22</port>
+        <credentialsId>e041022d-b95b-4567-b769-99358fa3f665</credentialsId>
+      </launcher>
+      <label>steeplechase</label>
+      <nodeProperties/>
+      <userId>anonymous</userId>
+    </slave>
   </slaves>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
