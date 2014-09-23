@@ -1,9 +1,5 @@
 #!/usr/bin/tclsh
 
-set fd [open email.snippet]
-set snippet [read $fd]
-close $fd
-
 set job_files [glob jobs/*/config.xml]
 
 foreach file $job_files {
@@ -14,10 +10,9 @@ foreach file $job_files {
     close $fd
 
     set newcontents $contents
-    if {[regsub -all {unzip} $newcontents gunzip newcontents]} {
-        puts -nonewline "replaced"
+    if {[regsub -all {<disabled>true</disabled>} $newcontents <disabled>false</disabled> newcontents]} {
+        puts -nonewline "enabled..."
     }
-
     if {![string equal $contents $newcontents]} {
         set fd [open $file w]
         puts -nonewline $fd $newcontents

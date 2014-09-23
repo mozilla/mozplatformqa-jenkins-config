@@ -24,7 +24,7 @@
       <command>export DEST=/home/mozilla/firefoxes/aurora/win32
 mkdir -p $DEST
 cd $DEST
-unzip -u -o $WORKSPACE/firefox-latest-aurora.en-US.win32.zip
+gunzip -u -o $WORKSPACE/firefox-latest-aurora.en-US.win32.zip
 
 </command>
     </hudson.tasks.Shell>
