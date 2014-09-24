@@ -1,9 +1,5 @@
 #!/usr/bin/tclsh
 
-set fd [open email.snippet]
-set snippet [read $fd]
-close $fd
-
 set job_files [glob jobs/*/config.xml]
 
 foreach file $job_files {
@@ -14,8 +10,8 @@ foreach file $job_files {
     close $fd
 
     set newcontents $contents
-    if {[regsub -all {unzip} $newcontents gunzip newcontents]} {
-        puts -nonewline "replaced"
+    if {[regsub -all {gunzip} $newcontents unzip newcontents]} {
+        puts -nonewline "gunzip was a bad idea..."
     }
 
     if {![string equal $contents $newcontents]} {

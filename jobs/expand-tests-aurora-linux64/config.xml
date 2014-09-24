@@ -7,14 +7,14 @@
   <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
     <urls>
       <hudson.plugins.URLSCM.URLSCM_-URLTuple>
-        <urlString>http://172.16.141.50:8080/job/tests-aurora-linux64/ws/releases/firefox-latest-aurora.en-US.linux-x86_64.tests.zip</urlString>
+        <urlString>http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/tests/job/tests-aurora-linux64/ws/releases/firefox-latest-aurora.en-US.linux-x86_64.tests.zip</urlString>
       </hudson.plugins.URLSCM.URLSCM_-URLTuple>
     </urls>
     <clearWorkspace>true</clearWorkspace>
   </scm>
   <assignedNode>steeplechase</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers/>
@@ -24,7 +24,7 @@
       <command>export DEST=/home/mozilla/firefoxes/aurora/linux64
 mkdir -p $DEST/tests
 cd $DEST/tests
-gunzip -u -o $WORKSPACE/firefox-latest-aurora.en-US.linux-x86_64.tests.zip</command>
+unzip -u -o $WORKSPACE/firefox-latest-aurora.en-US.linux-x86_64.tests.zip</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

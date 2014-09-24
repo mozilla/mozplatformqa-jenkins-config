@@ -10,16 +10,37 @@
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
-  <securityRealm class="hudson.security.SecurityRealm$None"/>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>false</disableSignup>
+    <enableCaptcha>false</enableCaptcha>
+  </securityRealm>
   <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${ITEM_ROOTDIR}/workspace</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <markupFormatter class="hudson.markup.EscapedMarkupFormatter"/>
   <jdks/>
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds/>
-  <slaves/>
+  <slaves>
+    <slave>
+      <name>steeplechase</name>
+      <description></description>
+      <remoteFS>/home/mozilla/jenkins</remoteFS>
+      <numExecutors>1</numExecutors>
+      <mode>NORMAL</mode>
+      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
+        <host>pf-steeplechase.qa.mtv2.mozilla.com</host>
+        <port>22</port>
+        <credentialsId>a19cdd4f-53f3-4812-9b05-3f4f87138578</credentialsId>
+      </launcher>
+      <label>steeplechase</label>
+      <nodeProperties/>
+      <userId>sydpolk</userId>
+    </slave>
+  </slaves>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
   <views>
@@ -308,15 +329,15 @@
           <string>MAC_10_9_2</string>
           <string>172.16.141.1</string>
           <string>SIGNALLING_SERVER</string>
-          <string>http://172.16.141.52:8080/</string>
+          <string>http://pf-steeplechase.qa.mtv2.mozilla.com:8080/</string>
           <string>UBUNTU14_32_1</string>
-          <string>172.16.141.55</string>
+          <string>10.252.73.238</string>
           <string>UBUNTU14_32_2</string>
-          <string>172.16.141.56</string>
+          <string>10.252.73.234</string>
           <string>UBUNTU14_64_1</string>
-          <string>172.16.141.52</string>
+          <string>pf-ubuntu14-64-01.qa.mtv2.mozilla.com</string>
           <string>UBUNTU14_64_2</string>
-          <string>172.16.141.53</string>
+          <string>pf-ubuntu14-64-02.qa.mtv2.mozilla.com</string>
           <string>WIN81_64_1</string>
           <string>172.16.141.58</string>
           <string>WIN81_64_2</string>
