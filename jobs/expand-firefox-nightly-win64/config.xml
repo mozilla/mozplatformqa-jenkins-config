@@ -14,7 +14,7 @@
   </scm>
   <assignedNode>steeplechase</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers/>
@@ -24,7 +24,7 @@
       <command>export DEST=/home/mozilla/firefoxes/nightly/win64
 mkdir -p $DEST
 cd $DEST
-gunzip -u -o $WORKSPACE/firefox-latest-nightly.en-US.win64-x86_64.zip
+unzip -u -o $WORKSPACE/firefox-latest-nightly.en-US.win64-x86_64.zip
 
 </command>
     </hudson.tasks.Shell>

@@ -325,7 +325,7 @@
           </default>
           <int>9</int>
           <string>MAC_10_9_1</string>
-          <string>172.16.141.57</string>
+          <string>10.252.73.236</string>
           <string>MAC_10_9_2</string>
           <string>172.16.141.1</string>
           <string>SIGNALLING_SERVER</string>
@@ -339,7 +339,7 @@
           <string>UBUNTU14_64_2</string>
           <string>pf-ubuntu14-64-02.qa.mtv2.mozilla.com</string>
           <string>WIN81_64_1</string>
-          <string>172.16.141.58</string>
+          <string>10.252.73.248</string>
           <string>WIN81_64_2</string>
           <string>172.16.141.59</string>
         </tree-map>

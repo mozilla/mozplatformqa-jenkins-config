@@ -59,9 +59,15 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>mkdir -p `pwd`/logs
+      <command>#!/bin/sh -x
+mkdir -p `pwd`/logs
 python `pwd`/steeplechase/steeplechase/runsteeplechase.py --binary /home/mozilla/firefoxes/nightly/macosx/FirefoxNightly.app/Contents/MacOS/firefox --binary2 /home/mozilla/firefoxes/nightly/win64/firefox/firefox.exe --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MAC_10_9_1:20701 --host2 $WIN81_64_1:20701
-</command>
+ &gt; steeplechase.out 2&gt;&amp;1
+ret=$?
+cat steeplechase.out
+if [ $ret &gt; 0 ]; then
+    exit $ret
+fi</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
