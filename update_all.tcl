@@ -14,7 +14,13 @@ foreach file $job_files {
     close $fd
 
     set newcontents $contents
-    if {[regsub -all {unzip} $newcontents gunzip newcontents]} {
+    if {[regsub {(<hudson.tasks.Shell>[ \t\n]+<command>)(mkdir.*)(</command>\n[ \t]+</hudson.tasks.Shell>)} $newcontents {\1#!/bin/sh -x
+\2 \&gt; steeplechase.out 2\&gt;\&amp;1
+ret=$?
+cat steeplechase.out
+if [ $ret \&gt; 0 ]; then
+    exit $ret
+fi\3} newcontents]} {
         puts -nonewline "replaced"
     }
 
