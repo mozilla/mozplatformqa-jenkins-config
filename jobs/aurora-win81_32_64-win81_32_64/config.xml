@@ -12,11 +12,11 @@
   <properties/>
   <scm class="org.jenkinsci.plugins.multiplescms.MultiSCM" plugin="multiple-scms@0.3">
     <scms>
-      <hudson.plugins.git.GitSCM plugin="git@2.2.5">
+      <hudson.plugins.git.GitSCM plugin="git@2.2.6">
         <configVersion>2</configVersion>
         <userRemoteConfigs>
           <hudson.plugins.git.UserRemoteConfig>
-            <url>https://github.com/mozilla/steeplechase.git</url>
+            <url>https://github.com/sydvicious/steeplechase.git</url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>
@@ -43,7 +43,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>expand-firefox-aurora-win32,expand-tests-aurora-linux64</upstreamProjects>
+      <upstreamProjects>trigger-firefox-aurora-win32,expand-tests-aurora-linux64, </upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -55,19 +55,34 @@
       <spec>H * * * *</spec>
       <ignorePostCommitHooks>false</ignorePostCommitHooks>
     </hudson.triggers.SCMTrigger>
+    <org.jenkinsci.plugins.urltrigger.URLTrigger plugin="urltrigger@0.37">
+      <spec>H * * * *</spec>
+      <entries>
+        <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
+          <url>http://172.16.141.50:8080/view/firefox/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip</url>
+          <proxyActivated>false</proxyActivated>
+          <checkStatus>false</checkStatus>
+          <statusCode>200</statusCode>
+          <timeout>300</timeout>
+          <checkETag>false</checkETag>
+          <checkLastModificationDate>true</checkLastModificationDate>
+          <inspectingContent>false</inspectingContent>
+          <contentTypes/>
+        </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
+      </entries>
+      <labelRestriction>false</labelRestriction>
+    </org.jenkinsci.plugins.urltrigger.URLTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
       <command>#!/bin/sh -x
 mkdir -p `pwd`/logs
-python `pwd`/steeplechase/steeplechase/runsteeplechase.py --binary /home/mozilla/firefoxes/aurora/win32/firefox/firefox.exe --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $WIN81_64_1:20701 --host2 $WIN81_64_2:20701
- &gt; steeplechase.out 2&gt;&amp;1
-ret=$?
-cat steeplechase.out
-if [ $ret &gt; 0 ]; then
-    exit $ret
-fi</command>
+
+curl http://172.16.141.50:8080/view/firefox/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip &gt; firefox-latest-aurora.en-US.win32.zip
+
+python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-latest-aurora.en-US.win32.zip --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $WIN81_64_1:20701 --host2 $WIN81_64_2:20701
+</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

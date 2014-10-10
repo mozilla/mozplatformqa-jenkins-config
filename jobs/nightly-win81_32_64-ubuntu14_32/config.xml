@@ -12,11 +12,11 @@
   <properties/>
   <scm class="org.jenkinsci.plugins.multiplescms.MultiSCM" plugin="multiple-scms@0.3">
     <scms>
-      <hudson.plugins.git.GitSCM plugin="git@2.2.5">
+      <hudson.plugins.git.GitSCM plugin="git@2.2.6">
         <configVersion>2</configVersion>
         <userRemoteConfigs>
           <hudson.plugins.git.UserRemoteConfig>
-            <url>https://github.com/mozilla/steeplechase.git</url>
+            <url>https://github.com/sydvicious/steeplechase.git</url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>
@@ -43,7 +43,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>expand-firefox-nightly-linux32,expand-tests-nightly-linux64,expand-firefox-nightly-win32</upstreamProjects>
+      <upstreamProjects>trigger-firefox-nightly-linux32,expand-tests-nightly-linux64,trigger-firefox-nightly-win32, </upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -55,18 +55,36 @@
       <spec>H * * * *</spec>
       <ignorePostCommitHooks>true</ignorePostCommitHooks>
     </hudson.triggers.SCMTrigger>
+    <org.jenkinsci.plugins.urltrigger.URLTrigger plugin="urltrigger@0.37">
+      <spec>H * * * *</spec>
+      <entries>
+        <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
+          <url>http://172.16.141.50:8080/view/firefox/job/firefox-nightly-win32/ws/releases/firefox-latest-nightly.en-US.win32.zip</url>
+          <proxyActivated>false</proxyActivated>
+          <checkStatus>false</checkStatus>
+          <statusCode>200</statusCode>
+          <timeout>300</timeout>
+          <checkETag>false</checkETag>
+          <checkLastModificationDate>true</checkLastModificationDate>
+          <inspectingContent>false</inspectingContent>
+          <contentTypes/>
+        </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
+      </entries>
+      <labelRestriction>false</labelRestriction>
+    </org.jenkinsci.plugins.urltrigger.URLTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
       <command>#!/bin/sh -x
 mkdir -p `pwd`/logs
-python `pwd`/steeplechase/steeplechase/runsteeplechase.py --binary /home/mozilla/firefoxes/nightly/win32/firefox/firefox.exe --binary2 /home/mozilla/firefoxes/nightly/linux32/firefox/firefox --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $WIN81_64_1:20701 --host2 $UBUNTU14_32_1:20701 &gt; steeplechase.out 2&gt;&amp;1
-ret=$?
-cat steeplechase.out
-if [ $ret &gt; 0 ]; then
-    exit $ret
-fi</command>
+
+curl http://172.16.141.50:8080/view/firefox/job/firefox-nightly-win32/ws/releases/firefox-latest-nightly.en-US.win32.zip &gt; firefox-latest-nightly.en-US.win32.zip
+
+curl http://172.16.141.50:8080/view/firefox/job/firefox-nightly-linux32/ws/releases/firefox-latest-nightly.en-US.linux-i686.tar.bz2 &gt; firefox-latest-nightly.en-US.linux-i686.tar.bz2
+
+python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-latest-nightly.en-US.win32.zip --package2 firefox-latest-nightly.en-US.linux-i686.tar.bz2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/nightly/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $WIN81_64_1:20701 --host2 $UBUNTU14_32_1:20701
+</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
