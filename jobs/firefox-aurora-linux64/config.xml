@@ -18,7 +18,9 @@
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
     <submoduleCfg class="list"/>
-    <extensions/>
+    <extensions>
+      <hudson.plugins.git.extensions.impl.DisableRemotePoll/>
+    </extensions>
   </scm>
   <assignedNode>master</assignedNode>
   <canRoam>false</canRoam>

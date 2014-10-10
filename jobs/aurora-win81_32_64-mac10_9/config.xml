@@ -16,7 +16,7 @@
         <configVersion>2</configVersion>
         <userRemoteConfigs>
           <hudson.plugins.git.UserRemoteConfig>
-            <url>https://github.com/mozilla/steeplechase.git</url>
+            <url>https://github.com/sydvicious/steeplechase.git</url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>
@@ -43,7 +43,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>expand-firefox-aurora-mac,expand-tests-aurora-linux64,expand-firefox-aurora-win32</upstreamProjects>
+      <upstreamProjects>trigger-firefox-aurora-mac,expand-tests-aurora-linux64,trigger-firefox-aurora-win32, </upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -55,18 +55,47 @@
       <spec>H * * * *</spec>
       <ignorePostCommitHooks>true</ignorePostCommitHooks>
     </hudson.triggers.SCMTrigger>
+    <org.jenkinsci.plugins.urltrigger.URLTrigger plugin="urltrigger@0.37">
+      <spec>H * * * *</spec>
+      <entries>
+        <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
+          <url>http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip</url>
+          <proxyActivated>false</proxyActivated>
+          <checkStatus>false</checkStatus>
+          <statusCode>200</statusCode>
+          <timeout>300</timeout>
+          <checkETag>false</checkETag>
+          <checkLastModificationDate>true</checkLastModificationDate>
+          <inspectingContent>false</inspectingContent>
+          <contentTypes/>
+        </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
+        <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
+          <url>http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.dmg</url>
+          <proxyActivated>false</proxyActivated>
+          <checkStatus>false</checkStatus>
+          <statusCode>200</statusCode>
+          <timeout>300</timeout>
+          <checkETag>false</checkETag>
+          <checkLastModificationDate>true</checkLastModificationDate>
+          <inspectingContent>false</inspectingContent>
+          <contentTypes/>
+        </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
+      </entries>
+      <labelRestriction>false</labelRestriction>
+    </org.jenkinsci.plugins.urltrigger.URLTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
       <command>#!/bin/sh -x
 mkdir -p `pwd`/logs
-python `pwd`/steeplechase/steeplechase/runsteeplechase.py --binary /home/mozilla/firefoxes/aurora/win32/firefox/firefox.exe --binary2 /home/mozilla/firefoxes/aurora/macosx/FirefoxAurora.app/Contents/MacOS/firefox --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $WIN81_64_1:20701 --host2 $MAC_10_9_1:20701 &gt; steeplechase.out 2&gt;&amp;1
-ret=$?
-cat steeplechase.out
-if [ $ret &gt; 0 ]; then
-    exit $ret
-fi</command>
+
+curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip &gt; firefox-latest-aurora.en-US.win32.zip
+
+curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.dmg &gt; firefox-latest-aurora.en-US.mac.dmg
+
+python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-latest-aurora.en-US.win32.zip --package2 firefox-latest-aurora.en-US.mac.dmg --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $WIN81_64_1:20701 --host2 $MAC_10_9_1:20701
+</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
