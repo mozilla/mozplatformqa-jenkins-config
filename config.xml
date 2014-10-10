@@ -25,64 +25,36 @@
   <clouds/>
   <slaves>
     <slave>
-      <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
-        <description>
-          <holder>
-            <owner>hudson.slaves.Messages</owner>
-          </holder>
-          <key>SlaveComputer.DisconnectedBy</key>
-          <args>
-            <string>anonymous</string>
-            <string></string>
-          </args>
-        </description>
-      </temporaryOfflineCause>
       <name>steeplechase</name>
       <description></description>
       <remoteFS>/home/mozilla/jenkins</remoteFS>
       <numExecutors>1</numExecutors>
       <mode>NORMAL</mode>
       <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
-      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
-        <host>172.16.141.51</host>
+      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.7.1">
+        <host>pf-steeplechase.qa.mtv2.mozilla.com</host>
         <port>22</port>
-        <credentialsId>e041022d-b95b-4567-b769-99358fa3f665</credentialsId>
+        <credentialsId>a19cdd4f-53f3-4812-9b05-3f4f87138578</credentialsId>
       </launcher>
-      <label></label>
+      <label>steeplechase</label>
       <nodeProperties/>
-      <userId>anonymous</userId>
+      <userId>sydpolk</userId>
     </slave>
     <slave>
-      <name>real mac</name>
-      <description></description>
-      <remoteFS>/Users/spolk/jenkins</remoteFS>
-      <numExecutors>1</numExecutors>
-      <mode>NORMAL</mode>
-      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
-      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
-        <host>172.16.141.1</host>
-        <port>22</port>
-        <credentialsId>835d167a-8191-488f-870d-a68e480adb83</credentialsId>
-      </launcher>
-      <label>mac macosx</label>
-      <nodeProperties/>
-      <userId>anonymous</userId>
-    </slave>
-    <slave>
-      <name>mac steeplechase</name>
+      <name>mac</name>
       <description></description>
       <remoteFS>/Users/mozilla/jenkins</remoteFS>
       <numExecutors>1</numExecutors>
       <mode>NORMAL</mode>
       <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
-      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
-        <host>172.16.141.57</host>
+      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.7.1">
+        <host>10.252.73.250</host>
         <port>22</port>
-        <credentialsId>e041022d-b95b-4567-b769-99358fa3f665</credentialsId>
+        <credentialsId>a19cdd4f-53f3-4812-9b05-3f4f87138578</credentialsId>
       </launcher>
-      <label>steeplechase</label>
+      <label>mac</label>
       <nodeProperties/>
-      <userId>anonymous</userId>
+      <userId>sydpolk</userId>
     </slave>
   </slaves>
   <quietPeriod>5</quietPeriod>
@@ -385,7 +357,7 @@
           <string>WIN81_64_1</string>
           <string>10.252.73.248</string>
           <string>WIN81_64_2</string>
-          <string>172.16.141.59</string>
+          <string>10.252.73.246</string>
         </tree-map>
       </envVars>
     </hudson.slaves.EnvironmentVariablesNodeProperty>
