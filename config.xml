@@ -5,7 +5,7 @@
     <string>hudson.diagnosis.TooManyJobsButNoView</string>
     <string>hudson.diagnosis.ReverseProxySetupMonitor</string>
   </disabledAdministrativeMonitors>
-  <version>1.581</version>
+  <version>1.582</version>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -31,12 +31,28 @@
       <numExecutors>1</numExecutors>
       <mode>NORMAL</mode>
       <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
-      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
+      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.7.1">
         <host>pf-steeplechase.qa.mtv2.mozilla.com</host>
         <port>22</port>
         <credentialsId>a19cdd4f-53f3-4812-9b05-3f4f87138578</credentialsId>
       </launcher>
       <label>steeplechase</label>
+      <nodeProperties/>
+      <userId>sydpolk</userId>
+    </slave>
+    <slave>
+      <name>mac</name>
+      <description></description>
+      <remoteFS>/Users/mozilla/jenkins</remoteFS>
+      <numExecutors>1</numExecutors>
+      <mode>NORMAL</mode>
+      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.7.1">
+        <host>10.252.73.250</host>
+        <port>22</port>
+        <credentialsId>a19cdd4f-53f3-4812-9b05-3f4f87138578</credentialsId>
+      </launcher>
+      <label>mac</label>
       <nodeProperties/>
       <userId>sydpolk</userId>
     </slave>
@@ -327,7 +343,7 @@
           <string>MAC_10_9_1</string>
           <string>10.252.73.236</string>
           <string>MAC_10_9_2</string>
-          <string>172.16.141.1</string>
+          <string>10.252.73.252</string>
           <string>SIGNALLING_SERVER</string>
           <string>http://pf-steeplechase.qa.mtv2.mozilla.com:8080/</string>
           <string>UBUNTU14_32_1</string>
