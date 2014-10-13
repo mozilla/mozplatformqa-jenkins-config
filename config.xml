@@ -5,7 +5,7 @@
     <string>hudson.diagnosis.TooManyJobsButNoView</string>
     <string>hudson.diagnosis.ReverseProxySetupMonitor</string>
   </disabledAdministrativeMonitors>
-  <version>1.582</version>
+  <version>1.583</version>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
