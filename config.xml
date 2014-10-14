@@ -40,22 +40,6 @@
       <nodeProperties/>
       <userId>sydpolk</userId>
     </slave>
-    <slave>
-      <name>mac</name>
-      <description></description>
-      <remoteFS>/Users/mozilla/jenkins</remoteFS>
-      <numExecutors>1</numExecutors>
-      <mode>NORMAL</mode>
-      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
-      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.7.1">
-        <host>10.252.73.250</host>
-        <port>22</port>
-        <credentialsId>a19cdd4f-53f3-4812-9b05-3f4f87138578</credentialsId>
-      </launcher>
-      <label>mac</label>
-      <nodeProperties/>
-      <userId>sydpolk</userId>
-    </slave>
   </slaves>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>

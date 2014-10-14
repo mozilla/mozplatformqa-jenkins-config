@@ -37,13 +37,13 @@
   </scm>
   <assignedNode>steeplechase</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>trigger-firefox-nightly-linux32,expand-tests-nightly-linux64,trigger-firefox-nightly-win32, </upstreamProjects>
+      <upstreamProjects>trigger-firefox-nightly-linux32,expand-tests-nightly-linux64,trigger-firefox-nightly-win32,</upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>

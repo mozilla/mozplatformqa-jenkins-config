@@ -22,10 +22,13 @@
   <builders>
     <hudson.tasks.Shell>
       <command>export DEST=/home/mozilla/firefoxes/nightly/linux64
-mkdir -p $DEST/tests
-cd $DEST/tests
-rm -rf *
-unzip -u -o $WORKSPACE/firefox-latest-nightly.en-US.linux-x86_64.tests.zip</command>
+mkdir -p $DEST
+cd $DEST
+rm -rf tests
+mkdir -p tests
+cd tests
+unzip -u -o $WORKSPACE/firefox-latest-nightly.en-US.linux-x86_64.tests.zip
+</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

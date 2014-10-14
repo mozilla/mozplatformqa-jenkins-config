@@ -22,8 +22,11 @@
   <builders>
     <hudson.tasks.Shell>
       <command>export DEST=/home/mozilla/firefoxes/aurora/linux64
-mkdir -p $DEST/tests
-cd $DEST/tests
+mkdir -p $DEST
+cd $DEST
+rm -rf tests
+mkdir -p tests
+cd tests
 unzip -u -o $WORKSPACE/firefox-latest-aurora.en-US.linux-x86_64.tests.zip</command>
     </hudson.tasks.Shell>
   </builders>
