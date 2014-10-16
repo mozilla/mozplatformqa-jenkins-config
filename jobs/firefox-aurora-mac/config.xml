@@ -4,7 +4,7 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.2.6">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.2.7">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -22,7 +22,7 @@
       <hudson.plugins.git.extensions.impl.DisableRemotePoll/>
     </extensions>
   </scm>
-  <assignedNode>mac</assignedNode>
+  <assignedNode>master</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
