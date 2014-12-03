@@ -12,7 +12,7 @@
   <properties/>
   <scm class="org.jenkinsci.plugins.multiplescms.MultiSCM" plugin="multiple-scms@0.3">
     <scms>
-      <hudson.plugins.git.GitSCM plugin="git@2.3">
+      <hudson.plugins.git.GitSCM plugin="git@2.2.7">
         <configVersion>2</configVersion>
         <userRemoteConfigs>
           <hudson.plugins.git.UserRemoteConfig>
@@ -94,12 +94,12 @@ curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-
 
 curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-nightly-mac/ws/releases/firefox-latest-nightly.en-US.mac.dmg &gt; firefox-latest-nightly.en-US.mac.dmg
 
-python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-latest-aurora.en-US.linux-i686.tar.bz2 --package2 firefox-latest-nightly.en-US.mac.dmg --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $UBUNTU14_32_1:20701 --host2 $MAC_1:20701
+python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-latest-aurora.en-US.linux-i686.tar.bz2 --package2 firefox-latest-nightly.en-US.mac.dmg --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $UBUNTU14_32_1:20701 --host2 $MAC_10_9_1:20701
 </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.39">
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.38.2">
       <recipientList>$DEFAULT_RECIPIENTS</recipientList>
       <configuredTriggers>
         <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
@@ -172,7 +172,6 @@ python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-late
       <compressBuildLog>false</compressBuildLog>
       <replyTo>$DEFAULT_REPLYTO</replyTo>
       <saveOutput>false</saveOutput>
-      <disabled>false</disabled>
     </hudson.plugins.emailext.ExtendedEmailPublisher>
   </publishers>
   <buildWrappers/>

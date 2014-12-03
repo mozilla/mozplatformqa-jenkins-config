@@ -12,7 +12,7 @@
   <properties/>
   <scm class="org.jenkinsci.plugins.multiplescms.MultiSCM" plugin="multiple-scms@0.3">
     <scms>
-      <hudson.plugins.git.GitSCM plugin="git@2.2.7">
+      <hudson.plugins.git.GitSCM plugin="git@2.2.6">
         <configVersion>2</configVersion>
         <userRemoteConfigs>
           <hudson.plugins.git.UserRemoteConfig>
@@ -94,7 +94,7 @@ curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-
 
 curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-linux32/ws/releases/firefox-latest-aurora.en-US.linux-i686.tar.bz2 &gt; firefox-latest-aurora.en-US.linux-i686.tar.bz2
 
-python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-latest-aurora.en-US.win32.zip --package2 firefox-latest-aurora.en-US.linux-i686.tar.bz2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $WIN32_1:20701 --host2 $UBUNTU14_32_1:20701
+python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-latest-aurora.en-US.win32.zip --package2 firefox-latest-aurora.en-US.linux-i686.tar.bz2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $WIN81_32_1:20701 --host2 $UBUNTU14_32_1:20701
 </command>
     </hudson.tasks.Shell>
   </builders>

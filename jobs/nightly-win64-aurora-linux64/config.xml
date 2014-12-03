@@ -94,7 +94,7 @@ curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-nightly
 
 curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-linux64/ws/releases/firefox-latest-aurora.en-US.linux-x86_64.tar.bz2 &gt; firefox-latest-aurora.en-US.linux-x86_64.tar.bz2
 
-python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-latest-nightly.en-US.win64-x86_64.zip --package2 firefox-latest-aurora.en-US.linux-x86_64.tar.bz2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $WIN64_1:20701 --host2 $UBUNTU14_64_1:20701
+python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-latest-nightly.en-US.win64-x86_64.zip --package2 firefox-latest-aurora.en-US.linux-x86_64.tar.bz2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $WIN81_64_1:20701 --host2 $UBUNTU14_64_1:20701
 </command>
     </hudson.tasks.Shell>
   </builders>

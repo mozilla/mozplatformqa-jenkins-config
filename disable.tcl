@@ -1,6 +1,6 @@
 #!/usr/bin/tclsh
 
-set job_files [glob jobs/*/config.xml]
+set job_files [glob jobs/nightly*/config.xml jobs/aurora*/config.xml]
 
 foreach file $job_files {
     puts -nonewline "Processing $file..."
