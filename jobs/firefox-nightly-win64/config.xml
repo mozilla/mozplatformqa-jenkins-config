@@ -22,7 +22,8 @@
       <hudson.plugins.git.extensions.impl.DisableRemotePoll/>
     </extensions>
   </scm>
-  <canRoam>true</canRoam>
+  <assignedNode>master</assignedNode>
+  <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
@@ -38,7 +39,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>bash -x ./maintain_firefox_cache.sh win64
+      <command>#!/bin/sh -x
+
+bash -x ./maintain_firefox_cache.sh win64
 </command>
     </hudson.tasks.Shell>
   </builders>

@@ -28,7 +28,7 @@
   <builders/>
   <publishers>
     <hudson.plugins.downstream__ext.DownstreamTrigger plugin="downstream-ext@1.8">
-      <childProjects>expand-tests-aurora-linux64</childProjects>
+      <childProjects>expand-tests-aurora-linux64, expand-tests-aurora-linux64-network</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
