@@ -57,7 +57,7 @@
   </scm>
   <assignedNode>steeplechase</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
@@ -79,7 +79,7 @@
       <spec>H * * * *</spec>
       <entries>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://172.16.141.50:8080/job/firefox-aurora-zip/ws/releases/firefox-latest-aurora.en-US.win32.zip</url>
+          <url>http://172.16.141.50:8080/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -90,7 +90,7 @@
           <contentTypes/>
         </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://172.16.141.50:8080/job/firefox-nightly-tar.bz2/ws/releases/firefox-latest-nightly.en-US.linux-x86_64.tar.bz2</url>
+          <url>http://172.16.141.50:8080/job/firefox-nightly-linux64/ws/releases/firefox-latest-nightly.en-US.linux-x86_64.tar.bz2</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -120,12 +120,12 @@ BUILD_FILE2=firefox-latest-nightly.en-US.linux-x86_64.txt
 MACHINE2=$LINUX64_1
 ARCH2=x86_64
 
-curl http://172.16.141.50:8080/job/firefox-aurora-zip/ws/releases/$PACKAGE1 &gt; $PACKAGE1
-curl http://172.16.141.50:8080/job/firefox-aurora-zip/ws/releases/$BUILD_FILE1 &gt; $BUILD_FILE1
+curl http://172.16.141.50:8080/job/firefox-aurora-win32/ws/releases/$PACKAGE1 &gt; $PACKAGE1
+curl http://172.16.141.50:8080/job/firefox-aurora-win32/ws/releases/$BUILD_FILE1 &gt; $BUILD_FILE1
 
-if $PACKAGE1 .ne. $PACKAGE2; then
-    curl http://172.16.141.50:8080/job/firefox-nightly-tar.bz2/ws/releases/$PACKAGE2 &gt; $PACKAGE2
-    curl http://172.16.141.50:8080/job/firefox-nightly-tar.bz2/ws/releases/$BUILD_FILE2 &gt; $BUILD_FILE2
+if [ "$PACKAGE1" != "$PACKAGE2" ] ; then
+    curl http://172.16.141.50:8080/job/firefox-nightly-linux64/ws/releases/$PACKAGE2 &gt; $PACKAGE2
+    curl http://172.16.141.50:8080/job/firefox-nightly-linux64/ws/releases/$BUILD_FILE2 &gt; $BUILD_FILE2
 fi
 
 python `pwd`/mozplatformqa-jenkins/jenkinsherder.py --steeplechase `pwd`/steeplechase/steeplechase/runsteeplechase.py --package $PACKAGE1 --package2 $PACKAGE2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MACHINE1:20701 --arch1 $ARCH1 --host2 $MACHINE2:20701 --arch2 $ARCH2
@@ -206,7 +206,7 @@ python `pwd`/mozplatformqa-jenkins/jenkinsherder.py --steeplechase `pwd`/steeple
       <compressBuildLog>false</compressBuildLog>
       <replyTo>$DEFAULT_REPLYTO</replyTo>
       <saveOutput>false</saveOutput>
-      <disabled>true</disabled>
+      <disabled>false</disabled>
     </hudson.plugins.emailext.ExtendedEmailPublisher>
   </publishers>
   <buildWrappers/>
