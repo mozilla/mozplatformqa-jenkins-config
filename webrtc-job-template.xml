@@ -12,11 +12,11 @@
   <properties/>
   <scm class="org.jenkinsci.plugins.multiplescms.MultiSCM" plugin="multiple-scms@0.3">
     <scms>
-      <hudson.plugins.git.GitSCM plugin="git@2.2.6">
+      <hudson.plugins.git.GitSCM plugin="git@2.3">
         <configVersion>2</configVersion>
         <userRemoteConfigs>
           <hudson.plugins.git.UserRemoteConfig>
-            <url>https://github.com/sydvicious/steeplechase.git</url>
+            <url>https://github.com/mozilla/steeplechase.git</url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>
@@ -33,17 +33,37 @@
           </hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
         </extensions>
       </hudson.plugins.git.GitSCM>
+      <hudson.plugins.git.GitSCM plugin="git@2.3">
+        <configVersion>2</configVersion>
+        <userRemoteConfigs>
+          <hudson.plugins.git.UserRemoteConfig>
+            <url>http://github.com/sydvicious/mozplatformqa-jenkins.git</url>
+          </hudson.plugins.git.UserRemoteConfig>
+        </userRemoteConfigs>
+        <branches>
+          <hudson.plugins.git.BranchSpec>
+            <name>*/master</name>
+          </hudson.plugins.git.BranchSpec>
+        </branches>
+        <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+        <submoduleCfg class="list"/>
+        <extensions>
+          <hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+            <relativeTargetDir>mozplatformqa-jenkins</relativeTargetDir>
+          </hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+        </extensions>
+      </hudson.plugins.git.GitSCM>
     </scms>
   </scm>
   <assignedNode>steeplechase</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>trigger-firefox-aurora-mac,expand-tests-aurora-linux64,trigger-firefox-aurora-win32,</upstreamProjects>
+      <upstreamProjects>XXTRIGGERSXX,XXEXPANDXX</upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -59,7 +79,7 @@
       <spec>H * * * *</spec>
       <entries>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip</url>
+          <url>XXURL1XX/XXPACKAGE1XX</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -70,7 +90,7 @@
           <contentTypes/>
         </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.dmg</url>
+          <url>XXURL2XX/XXPACKAGE2XX</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -90,16 +110,30 @@
       <command>#!/bin/sh -x
 mkdir -p `pwd`/logs
 
-curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip &gt; firefox-latest-aurora.en-US.win32.zip
+PACKAGE1=XXPACKAGE1XX
+BUILD_FILE1=XXBUILD_FILE1XX
+MACHINE1=XXMACHINE1XX
+ARCH1=XXARCH1XX
 
-curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.dmg &gt; firefox-latest-aurora.en-US.mac.dmg
+PACKAGE2=XXPACKAGE2XX
+BUILD_FILE2=XXBUILD_FILE2XX
+MACHINE2=XXMACHINE2XX
+ARCH2=XXARCH2XX
 
-python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-latest-aurora.en-US.win32.zip --package2 firefox-latest-aurora.en-US.mac.dmg --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $WIN81_32_1:20701 --host2 $MAC_10_9_1:20701
+curl XXURL1XX/$PACKAGE1 &gt; $PACKAGE1
+curl XXURL1XX/$BUILD_FILE1 &gt; $BUILD_FILE1
+
+if $PACKAGE1 .ne. $PACKAGE2; then
+    curl XXURL2XX/$PACKAGE2 &gt; $PACKAGE2
+    curl XXURL2XX/$BUILD_FILE2 &gt; $BUILD_FILE2
+fi
+
+python `pwd`/mozplatformqa-jenkins/jenkinsherder.py --steeplechase `pwd`/steeplechase/steeplechase/runsteeplechase.py --package $PACKAGE1 --package2 $PACKAGE2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MACHINE1:20701 --arch1 $ARCH1 --host2 $MACHINE2:20701 --arch2 $ARCH2
 </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.38.2">
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.39">
       <recipientList>$DEFAULT_RECIPIENTS</recipientList>
       <configuredTriggers>
         <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
@@ -172,6 +206,7 @@ python `pwd`/steeplechase/steeplechase/runsteeplechase.py --package firefox-late
       <compressBuildLog>false</compressBuildLog>
       <replyTo>$DEFAULT_REPLYTO</replyTo>
       <saveOutput>false</saveOutput>
+      <disabled>true</disabled>
     </hudson.plugins.emailext.ExtendedEmailPublisher>
   </publishers>
   <buildWrappers/>
