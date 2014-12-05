@@ -117,8 +117,8 @@ class GenerateJobs():
                 if row['Networking']:
                     expand = '%s-network' % expand
 
-                url1 = '%s/job/firefox-%s-%s/ws/releases' % (self.config['host'], row['Release1'], self.get_platform_extension(row['Platform1']))
-                url2 = '%s/job/firefox-%s-%s/ws/releases' % (self.config['host'], row['Release2'], self.get_platform_extension(row['Platform2']))
+                url1 = '%s/job/firefox-%s-%s/ws/releases' % (self.config['host'], row['Release1'], row['Platform1'])
+                url2 = '%s/job/firefox-%s-%s/ws/releases' % (self.config['host'], row['Release2'], row['Platform2'])
 
                 artifact_platform1 = self.get_artifact_platform(row['Platform1'])
                 artifact_platform2 = self.get_artifact_platform(row['Platform2'])
