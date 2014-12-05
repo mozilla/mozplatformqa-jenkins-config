@@ -57,7 +57,7 @@
   </scm>
   <assignedNode>steeplechase</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>false</disabled>
+  <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
@@ -123,7 +123,7 @@ ARCH2=XXARCH2XX
 curl XXURL1XX/$PACKAGE1 &gt; $PACKAGE1
 curl XXURL1XX/$BUILD_FILE1 &gt; $BUILD_FILE1
 
-if $PACKAGE1 .ne. $PACKAGE2; then
+if [ "$PACKAGE1" != "$PACKAGE2" ] ; then
     curl XXURL2XX/$PACKAGE2 &gt; $PACKAGE2
     curl XXURL2XX/$BUILD_FILE2 &gt; $BUILD_FILE2
 fi
@@ -206,7 +206,7 @@ python `pwd`/mozplatformqa-jenkins/jenkinsherder.py --steeplechase `pwd`/steeple
       <compressBuildLog>false</compressBuildLog>
       <replyTo>$DEFAULT_REPLYTO</replyTo>
       <saveOutput>false</saveOutput>
-      <disabled>true</disabled>
+      <disabled>false</disabled>
     </hudson.plugins.emailext.ExtendedEmailPublisher>
   </publishers>
   <buildWrappers/>
