@@ -26,6 +26,7 @@ REGEXPS = {
     'machine2': r'XXMACHINE2XX',
     'arch2': r'XXARCH2XX',
     'triggers': r'XXTRIGGERSXX',
+    'slave': r'XXSLAVEXX'
 }
 
 for key in REGEXPS:
@@ -80,7 +81,9 @@ class GenerateJobs():
             return platform
 
     def get_lowest_release(self, release1, release2):
-        if release1 == 'release' or release2 == 'release':
+        if release1 == 'esr' or release2 == 'esr':
+            return 'esr'
+        elif release1 == 'release' or release2 == 'release':
             return 'release'
         elif release1 == 'beta' or release2 == 'beta':
             return 'beta'
@@ -143,6 +146,7 @@ class GenerateJobs():
                 template = re.sub(REGEXPS['machine2'], row['Host2'], template)
                 template = re.sub(REGEXPS['arch1'], row['Arch1'], template)
                 template = re.sub(REGEXPS['arch2'], row['Arch2'], template)
+                template = re.sub(REGEXPS['slave'], row['Slave'], template)
 
                 # Generate directory
                 dir = os.path.join('jobs', jobname)
