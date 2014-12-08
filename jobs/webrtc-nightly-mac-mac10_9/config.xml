@@ -117,7 +117,7 @@ ARCH1=x86_64
 
 PACKAGE2=firefox-latest-nightly.en-US.mac.dmg
 BUILD_FILE2=firefox-latest-nightly.en-US.mac.txt
-MACHINE2=$MAC_10_9
+MACHINE2=$MAC_10_9_1
 ARCH2=x86_64
 
 curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-mac/ws/releases/$PACKAGE1 &gt; $PACKAGE1
