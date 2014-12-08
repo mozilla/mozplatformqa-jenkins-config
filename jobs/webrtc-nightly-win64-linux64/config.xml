@@ -79,7 +79,7 @@
       <spec>H * * * *</spec>
       <entries>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://172.16.141.50:8080/job/firefox-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64-x86_64.zip</url>
+          <url>http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64-x86_64.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -90,7 +90,7 @@
           <contentTypes/>
         </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://172.16.141.50:8080/job/firefox-nightly-linux64/ws/releases/firefox-latest-nightly.en-US.linux-x86_64.tar.bz2</url>
+          <url>http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-linux64/ws/releases/firefox-latest-nightly.en-US.linux-x86_64.tar.bz2</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -120,12 +120,12 @@ BUILD_FILE2=firefox-latest-nightly.en-US.linux-x86_64.txt
 MACHINE2=$LINUX64_1
 ARCH2=x86_64
 
-curl http://172.16.141.50:8080/job/firefox-nightly-win64/ws/releases/$PACKAGE1 &gt; $PACKAGE1
-curl http://172.16.141.50:8080/job/firefox-nightly-win64/ws/releases/$BUILD_FILE1 &gt; $BUILD_FILE1
+curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-win64/ws/releases/$PACKAGE1 &gt; $PACKAGE1
+curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-win64/ws/releases/$BUILD_FILE1 &gt; $BUILD_FILE1
 
 if [ "$PACKAGE1" != "$PACKAGE2" ] ; then
-    curl http://172.16.141.50:8080/job/firefox-nightly-linux64/ws/releases/$PACKAGE2 &gt; $PACKAGE2
-    curl http://172.16.141.50:8080/job/firefox-nightly-linux64/ws/releases/$BUILD_FILE2 &gt; $BUILD_FILE2
+    curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-linux64/ws/releases/$PACKAGE2 &gt; $PACKAGE2
+    curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-linux64/ws/releases/$BUILD_FILE2 &gt; $BUILD_FILE2
 fi
 
 python `pwd`/mozplatformqa-jenkins/jenkinsherder.py --steeplechase `pwd`/steeplechase/steeplechase/runsteeplechase.py --package $PACKAGE1 --package2 $PACKAGE2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MACHINE1:20701 --arch1 $ARCH1 --host2 $MACHINE2:20701 --arch2 $ARCH2
