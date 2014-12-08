@@ -112,7 +112,7 @@ mkdir -p `pwd`/logs
 
 PACKAGE1=firefox-latest-nightly.en-US.mac.dmg
 BUILD_FILE1=firefox-latest-nightly.en-US.mac.txt
-MACHINE1=$MAC_10_8
+MACHINE1=$MAC_10_8_1
 ARCH1=x86_64
 
 PACKAGE2=firefox-latest-nightly.en-US.mac.dmg
