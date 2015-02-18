@@ -21,7 +21,7 @@ REGEXPS = {
     'triggers': r'XXTRIGGERSXX',
     'expand': r'XXEXPANDXX',
     'slave': r'XXSLAVEXX',
-    'platform': r'XXPLATFORM',
+    'platform': r'XXPLATFORMXX',
 }
 
 for key in REGEXPS:
