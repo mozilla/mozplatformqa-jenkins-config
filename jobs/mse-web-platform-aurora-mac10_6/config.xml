@@ -27,7 +27,7 @@
     <submoduleCfg class="list"/>
     <extensions/>
   </scm>
-  <assignedNode>XXSLAVEXX</assignedNode>
+  <assignedNode>mac</assignedNode>
   <canRoam>false</canRoam>
   <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -35,7 +35,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>XXTRIGGERSXX,XXEXPANDXX</upstreamProjects>
+      <upstreamProjects>trigger-firefox-aurora-mac, tests-aurora-mac,XXEXPANDXX</upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -51,7 +51,7 @@
       <spec>H * * * *</spec>
       <entries>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>XXURL1XX/XXPACKAGEXX</url>
+          <url>http://172.16.141.50:8080/job/firefox-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.dmg</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -62,7 +62,7 @@
           <contentTypes/>
         </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>XXURL2XX/XXTESTSXX</url>
+          <url>http://172.16.141.50:8080/job/tests-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.tests.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -79,12 +79,12 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <jenkins.plugins.shiningpanda.builders.VirtualenvBuilder plugin="shiningpanda@0.21">
-      <pythonName>XXPYTHONXX</pythonName>
+      <pythonName>System-Cpython-2.7</pythonName>
       <home>jenkinspy</home>
       <clear>true</clear>
       <systemSitePackages>false</systemSitePackages>
       <nature>shell</nature>
-      <command>bash -x ./run-media-source-web-platform.sh XXURL1XX/XXPACKAGEXX XXURL2XX/XXTESTSXX XXPLATFORMXX
+      <command>bash -x ./run-media-source-web-platform.sh http://172.16.141.50:8080/job/firefox-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.dmg http://172.16.141.50:8080/job/tests-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.tests.zip mac
 </command>
       <ignoreExitCode>false</ignoreExitCode>
     </jenkins.plugins.shiningpanda.builders.VirtualenvBuilder>
