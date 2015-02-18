@@ -17,7 +17,7 @@ REGEXPS = {
     'url1': r'XXURL1XX',
     'package': r'XXPACKAGEXX',
     'url2': r'XXURL2XX',
-    'tests': r'XXPACKAGE2XX',
+    'tests': r'XXTESTSXX',
     'triggers': r'XXTRIGGERSXX',
     'expand': r'XXEXPANDXX',
     'slave': r'XXSLAVEXX',
