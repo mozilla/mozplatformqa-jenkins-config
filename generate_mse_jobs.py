@@ -108,7 +108,7 @@ class GenerateJobs():
                 artifact_platform = self.get_artifact_platform(row['Platform'])
 
                 package = 'firefox-latest-%s.en-US.%s.%s' % (row['Release'], artifact_platform, self.get_platform_extension(row['Platform']))
-                tests = 'tests-latest-%s.%s.%s' % (row['Release'], artifact_platform, 'zip')
+                tests = 'tests-latest-%s-%s.%s' % (row['Release'], artifact_platform, 'zip')
 
                 # We will need build_file for reporting results to treeherder
                 # build_file = 'firefox-latest-%s.en-US.%s.txt' % (row['Release'], artifact_platform1)
