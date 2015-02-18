@@ -121,6 +121,7 @@ class GenerateJobs():
                 template = re.sub(REGEXPS['package'], package, template)
                 template = re.sub(REGEXPS['tests'], tests, template)
                 template = re.sub(REGEXPS['slave'], row['Slave'], template)
+                template = re.sub(REGEXPS['platform'], row['Platform'], template)
 
                 # We will need build_file for reporting results to treeherder
                 #template = re.sub(REGEXPS['build_file'], build_file, template)
