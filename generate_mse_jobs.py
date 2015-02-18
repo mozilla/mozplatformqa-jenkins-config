@@ -23,6 +23,7 @@ REGEXPS = {
     'slave': r'XXSLAVEXX',
     'platform': r'XXPLATFORMXX',
     'python': r'XXPYTHONXX',
+    'bash': r'XXBASHXX',
 }
 
 for key in REGEXPS:
@@ -124,6 +125,7 @@ class GenerateJobs():
                 template = re.sub(REGEXPS['slave'], row['Slave'], template)
                 template = re.sub(REGEXPS['platform'], row['Platform'], template)
                 template = re.sub(REGEXPS['python'], row['Python'], template)
+                template = re.sub(REGEXPS['bash'], row['Bash'], template)
 
                 # We will need build_file for reporting results to treeherder
                 #template = re.sub(REGEXPS['build_file'], build_file, template)

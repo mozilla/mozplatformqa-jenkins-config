@@ -27,7 +27,7 @@
     <submoduleCfg class="list"/>
     <extensions/>
   </scm>
-  <assignedNode>mac</assignedNode>
+  <assignedNode>mac10-9</assignedNode>
   <canRoam>false</canRoam>
   <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -84,7 +84,7 @@
       <clear>true</clear>
       <systemSitePackages>false</systemSitePackages>
       <nature>shell</nature>
-      <command>bash -x ./run-media-source-web-platform.sh http://172.16.141.50:8080/job/firefox-nightly-mac/ws/releases/firefox-latest-nightly.en-US.mac.dmg http://172.16.141.50:8080/job/tests-nightly-mac/ws/releases/firefox-latest-nightly.en-US.mac.tests.zip mac
+      <command>bash -xe ./run-media-source-web-platform.sh http://172.16.141.50:8080/job/firefox-nightly-mac/ws/releases/firefox-latest-nightly.en-US.mac.dmg http://172.16.141.50:8080/job/tests-nightly-mac/ws/releases/firefox-latest-nightly.en-US.mac.tests.zip mac
 </command>
       <ignoreExitCode>false</ignoreExitCode>
     </jenkins.plugins.shiningpanda.builders.VirtualenvBuilder>

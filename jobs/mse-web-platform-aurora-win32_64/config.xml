@@ -27,7 +27,7 @@
     <submoduleCfg class="list"/>
     <extensions/>
   </scm>
-  <assignedNode>win64</assignedNode>
+  <assignedNode>win64 && mse && win</assignedNode>
   <canRoam>false</canRoam>
   <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -84,7 +84,7 @@
       <clear>true</clear>
       <systemSitePackages>false</systemSitePackages>
       <nature>shell</nature>
-      <command>bash -x ./run-media-source-web-platform.sh http://172.16.141.50:8080/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip http://172.16.141.50:8080/job/tests-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.tests.zip win32
+      <command>c:\mozilla-build\msysinash -xe ./run-media-source-web-platform.sh http://172.16.141.50:8080/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip http://172.16.141.50:8080/job/tests-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.tests.zip win32
 </command>
       <ignoreExitCode>false</ignoreExitCode>
     </jenkins.plugins.shiningpanda.builders.VirtualenvBuilder>
