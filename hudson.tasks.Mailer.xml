@@ -3,7 +3,7 @@
   <defaultSuffix>@mozilla.com</defaultSuffix>
   <hudsonUrl>http://172.16.141.50:8080/</hudsonUrl>
   <smtpAuthUsername>spolk@mozilla.com</smtpAuthUsername>
-  <smtpAuthPassword>aov7/G+mgrxWgiDAN3bop3ZHpScrTkIl6Z9oJZvkhwI=</smtpAuthPassword>
+  <smtpAuthPassword>vsctz6c/AIVMrGPGCAHVhiX5bSNs2UTL6zk1T1jQBFRmaJBEEJF6ohhPYJX3vhcH</smtpAuthPassword>
   <replyToAddress>spolk@mozilla.com</replyToAddress>
   <smtpHost>smtp.mozilla.org</smtpHost>
   <useSsl>true</useSsl>

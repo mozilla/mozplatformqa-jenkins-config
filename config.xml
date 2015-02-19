@@ -3,81 +3,58 @@
   <disabledAdministrativeMonitors>
     <string>jenkins.diagnostics.SecurityIsOffMonitor</string>
     <string>hudson.diagnosis.TooManyJobsButNoView</string>
+    <string>hudson.diagnosis.ReverseProxySetupMonitor</string>
   </disabledAdministrativeMonitors>
-  <version>1.580</version>
+  <version>1.583</version>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
-  <securityRealm class="hudson.security.SecurityRealm$None"/>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>false</disableSignup>
+    <enableCaptcha>false</enableCaptcha>
+  </securityRealm>
   <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${ITEM_ROOTDIR}/workspace</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <markupFormatter class="hudson.markup.EscapedMarkupFormatter"/>
   <jdks/>
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds/>
   <slaves>
     <slave>
-      <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
-        <description>
-          <holder>
-            <owner>hudson.slaves.Messages</owner>
-          </holder>
-          <key>SlaveComputer.DisconnectedBy</key>
-          <args>
-            <string>anonymous</string>
-            <string></string>
-          </args>
-        </description>
-      </temporaryOfflineCause>
       <name>steeplechase</name>
       <description></description>
       <remoteFS>/home/mozilla/jenkins</remoteFS>
       <numExecutors>1</numExecutors>
       <mode>NORMAL</mode>
       <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
-      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
-        <host>172.16.141.51</host>
+      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.7.1">
+        <host>pf-steeplechase.qa.mtv2.mozilla.com</host>
         <port>22</port>
-        <credentialsId>e041022d-b95b-4567-b769-99358fa3f665</credentialsId>
+        <credentialsId>a19cdd4f-53f3-4812-9b05-3f4f87138578</credentialsId>
       </launcher>
-      <label></label>
+      <label>steeplechase</label>
       <nodeProperties/>
-      <userId>anonymous</userId>
+      <userId>sydpolk</userId>
     </slave>
     <slave>
-      <name>real mac</name>
-      <description></description>
-      <remoteFS>/Users/spolk/jenkins</remoteFS>
-      <numExecutors>1</numExecutors>
-      <mode>NORMAL</mode>
-      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
-      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
-        <host>172.16.141.1</host>
-        <port>22</port>
-        <credentialsId>835d167a-8191-488f-870d-a68e480adb83</credentialsId>
-      </launcher>
-      <label>mac macosx</label>
-      <nodeProperties/>
-      <userId>anonymous</userId>
-    </slave>
-    <slave>
-      <name>mac steeplechase</name>
+      <name>mac</name>
       <description></description>
       <remoteFS>/Users/mozilla/jenkins</remoteFS>
       <numExecutors>1</numExecutors>
       <mode>NORMAL</mode>
       <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
-      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.6">
-        <host>172.16.141.57</host>
+      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.7.1">
+        <host>10.252.73.250</host>
         <port>22</port>
-        <credentialsId>e041022d-b95b-4567-b769-99358fa3f665</credentialsId>
+        <credentialsId>a19cdd4f-53f3-4812-9b05-3f4f87138578</credentialsId>
       </launcher>
-      <label>steeplechase</label>
+      <label>mac</label>
       <nodeProperties/>
-      <userId>anonymous</userId>
+      <userId>sydpolk</userId>
     </slave>
   </slaves>
   <quietPeriod>5</quietPeriod>
@@ -352,7 +329,7 @@
   </views>
   <primaryView>All</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
-  <label>master</label>
+  <label></label>
   <nodeProperties/>
   <globalNodeProperties>
     <hudson.slaves.EnvironmentVariablesNodeProperty>
@@ -364,23 +341,23 @@
           </default>
           <int>9</int>
           <string>MAC_10_9_1</string>
-          <string>172.16.141.57</string>
+          <string>10.252.73.236</string>
           <string>MAC_10_9_2</string>
-          <string>172.16.141.1</string>
+          <string>10.252.73.252</string>
           <string>SIGNALLING_SERVER</string>
-          <string>http://172.16.141.52:8080/</string>
+          <string>http://pf-steeplechase.qa.mtv2.mozilla.com:8080/</string>
           <string>UBUNTU14_32_1</string>
-          <string>172.16.141.55</string>
+          <string>10.252.73.238</string>
           <string>UBUNTU14_32_2</string>
-          <string>172.16.141.56</string>
+          <string>10.252.73.234</string>
           <string>UBUNTU14_64_1</string>
-          <string>172.16.141.52</string>
+          <string>pf-ubuntu14-64-01.qa.mtv2.mozilla.com</string>
           <string>UBUNTU14_64_2</string>
-          <string>172.16.141.53</string>
+          <string>pf-ubuntu14-64-02.qa.mtv2.mozilla.com</string>
           <string>WIN81_64_1</string>
-          <string>172.16.141.58</string>
+          <string>10.252.73.248</string>
           <string>WIN81_64_2</string>
-          <string>172.16.141.59</string>
+          <string>10.252.73.246</string>
         </tree-map>
       </envVars>
     </hudson.slaves.EnvironmentVariablesNodeProperty>
