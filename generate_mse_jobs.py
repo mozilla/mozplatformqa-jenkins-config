@@ -102,7 +102,7 @@ class GenerateJobs():
 
                 print 'jobname = %s' % jobname
 
-                triggers = 'trigger-firefox-%s-%s, tests-%s-%s' % (row['Release'], row['Platform'], row['Release'], row['Platform'])
+                triggers = 'trigger-firefox-%s-%s, trigger-tests-%s-%s' % (row['Release'], row['Platform'], row['Release'], row['Platform'])
 
                 url1 = '%s/job/firefox-%s-%s/ws/releases' % (self.config['host'], row['Release'], row['Platform'])
                 url2 = '%s/job/tests-%s-%s/ws/releases' % (self.config['host'], row['Release'], row['Platform'])
