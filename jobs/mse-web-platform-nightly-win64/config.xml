@@ -35,7 +35,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>trigger-firefox-nightly-win64, tests-nightly-win64,XXEXPANDXX</upstreamProjects>
+      <upstreamProjects>trigger-firefox-nightly-win64, trigger-tests-nightly-win64</upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -123,3 +123,4 @@
   </publishers>
   <buildWrappers/>
 </project>
+

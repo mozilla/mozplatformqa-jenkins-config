@@ -35,7 +35,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>trigger-firefox-aurora-win32, tests-aurora-win32,XXEXPANDXX</upstreamProjects>
+      <upstreamProjects>trigger-firefox-aurora-win32, trigger-tests-aurora-win32</upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -123,3 +123,4 @@
   </publishers>
   <buildWrappers/>
 </project>
+
