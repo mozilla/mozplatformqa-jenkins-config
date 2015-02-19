@@ -15,7 +15,7 @@
       <spec>H/3 * * * *</spec>
       <fileInfo>
         <org.jenkinsci.plugins.fstrigger.triggers.FileNameTriggerInfo>
-          <filePathPattern>/var/lib/jenkins/jenkinsjenkins/jobs/firefox-nightly-linux64/workspace/releases/firefox-latest-nightly.en-US.linux-x86_64.tar.bz2</filePathPattern>
+          <filePathPattern>/var/lib/jenkins/jobs/firefox-nightly-linux64/workspace/releases/firefox-latest-nightly.en-US.linux-x86_64.tar.bz2</filePathPattern>
           <strategy>LATEST</strategy>
           <inspectingContentFile>false</inspectingContentFile>
           <doNotCheckLastModificationDate>false</doNotCheckLastModificationDate>
@@ -39,7 +39,7 @@
       <onlyIfSCMChanges>false</onlyIfSCMChanges>
       <onlyIfLocalSCMChanges>false</onlyIfLocalSCMChanges>
     </hudson.plugins.downstream__ext.DownstreamTrigger>
-    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.38.2">
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.39">
       <recipientList>$DEFAULT_RECIPIENTS</recipientList>
       <configuredTriggers>
         <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
@@ -112,6 +112,7 @@
       <compressBuildLog>false</compressBuildLog>
       <replyTo>$DEFAULT_REPLYTO</replyTo>
       <saveOutput>false</saveOutput>
+      <disabled>false</disabled>
     </hudson.plugins.emailext.ExtendedEmailPublisher>
   </publishers>
   <buildWrappers/>
