@@ -73,7 +73,7 @@ class GenerateJobs():
         elif platform == 'linux32':
             return 'linux-i686'
         elif platform == 'win64':
-            return 'win64-x86_64'
+            return 'win64'
         else:
             return platform
 
