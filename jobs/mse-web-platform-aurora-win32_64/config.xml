@@ -10,7 +10,7 @@
   </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.4">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.5">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -29,13 +29,13 @@
   </scm>
   <assignedNode>win64 &amp;&amp; mse &amp;&amp; win</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>trigger-firefox-aurora-win32, tests-aurora-win32,XXEXPANDXX</upstreamProjects>
+      <upstreamProjects>trigger-firefox-aurora-win32, trigger-tests-aurora-win32</upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -51,7 +51,7 @@
       <spec>H * * * *</spec>
       <entries>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip</url>
+          <url>http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -62,7 +62,7 @@
           <contentTypes/>
         </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>pf-jenkins.qa.mtv2.mozilla.com:8080/job/tests-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.tests.zip</url>
+          <url>http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/tests-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.tests.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -84,7 +84,7 @@
       <clear>true</clear>
       <systemSitePackages>false</systemSitePackages>
       <nature>shell</nature>
-      <command>c:\mozilla-build\msys\bin\bash -xe ./run-media-source-web-platform.sh pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip pf-jenkins.qa.mtv2.mozilla.com:8080/job/tests-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.tests.zip win32
+      <command>c:\mozilla-build\msys\bin\bash -xe ./run-media-source-web-platform.sh http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.zip http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/tests-aurora-win32/ws/releases/firefox-latest-aurora.en-US.win32.tests.zip win32
 </command>
       <ignoreExitCode>false</ignoreExitCode>
     </jenkins.plugins.shiningpanda.builders.VirtualenvBuilder>

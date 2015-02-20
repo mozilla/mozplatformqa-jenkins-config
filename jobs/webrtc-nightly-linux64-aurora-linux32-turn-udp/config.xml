@@ -12,16 +12,16 @@
   <properties/>
   <scm class="org.jenkinsci.plugins.multiplescms.MultiSCM" plugin="multiple-scms@0.3">
     <scms>
-      <hudson.plugins.git.GitSCM plugin="git@2.3">
+      <hudson.plugins.git.GitSCM plugin="git@2.3.4">
         <configVersion>2</configVersion>
         <userRemoteConfigs>
           <hudson.plugins.git.UserRemoteConfig>
-            <url>https://github.com/mozilla/steeplechase.git</url>
+            <url>https://github.com/nils-ohlmeier/steeplechase.git</url>
           </hudson.plugins.git.UserRemoteConfig>
         </userRemoteConfigs>
         <branches>
           <hudson.plugins.git.BranchSpec>
-            <name>*/master</name>
+            <name>*/onerror</name>
           </hudson.plugins.git.BranchSpec>
         </branches>
         <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -33,7 +33,7 @@
           </hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
         </extensions>
       </hudson.plugins.git.GitSCM>
-      <hudson.plugins.git.GitSCM plugin="git@2.3">
+      <hudson.plugins.git.GitSCM plugin="git@2.3.4">
         <configVersion>2</configVersion>
         <userRemoteConfigs>
           <hudson.plugins.git.UserRemoteConfig>
@@ -57,7 +57,7 @@
   </scm>
   <assignedNode>network-steeplechase</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
@@ -123,12 +123,12 @@ ARCH2=i686
 curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-linux64/ws/releases/$PACKAGE1 &gt; $PACKAGE1
 curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-linux64/ws/releases/$BUILD_FILE1 &gt; $BUILD_FILE1
 
-if [ "$PACKAGE1" != "$PACKAGE2" ] ; then
+if [ &quot;$PACKAGE1&quot; != &quot;$PACKAGE2&quot; ] ; then
     curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-aurora-linux32/ws/releases/$PACKAGE2 &gt; $PACKAGE2
     curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-aurora-linux32/ws/releases/$BUILD_FILE2 &gt; $BUILD_FILE2
 fi
 
-python `pwd`/mozplatformqa-jenkins/jenkinsherder.py --steeplechase `pwd`/steeplechase/steeplechase/runsteeplechase.py --package $PACKAGE1 --package2 $PACKAGE2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MACHINE1:20701 --arch1 $ARCH1 --host2 $MACHINE2:20701 --arch2 $ARCH2
+python `pwd`/mozplatformqa-jenkins/jenkinsherder.py --steeplechase `pwd`/steeplechase/steeplechase/runsteeplechase.py --package $PACKAGE1 --package2 $PACKAGE2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $NETWORK_SIGNALLING_SERVER --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MACHINE1:20701 --arch1 $ARCH1 --host2 $MACHINE2:20701 --arch2 $ARCH2
 </command>
     </hudson.tasks.Shell>
   </builders>
