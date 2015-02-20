@@ -90,7 +90,7 @@
           <contentTypes/>
         </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64-x86_64.zip</url>
+          <url>http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -115,8 +115,8 @@ BUILD_FILE1=firefox-latest-aurora.en-US.mac.txt
 MACHINE1=$MAC_1
 ARCH1=x86_64
 
-PACKAGE2=firefox-latest-nightly.en-US.win64-x86_64.zip
-BUILD_FILE2=firefox-latest-nightly.en-US.win64-x86_64.txt
+PACKAGE2=firefox-latest-nightly.en-US.win64.zip
+BUILD_FILE2=firefox-latest-nightly.en-US.win64.txt
 MACHINE2=$WIN64_1
 ARCH2=x86_64
 

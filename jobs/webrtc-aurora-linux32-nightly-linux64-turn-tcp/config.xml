@@ -57,7 +57,7 @@
   </scm>
   <assignedNode>network-steeplechase</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
@@ -123,7 +123,7 @@ ARCH2=x86_64
 curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-aurora-linux32/ws/releases/$PACKAGE1 &gt; $PACKAGE1
 curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-aurora-linux32/ws/releases/$BUILD_FILE1 &gt; $BUILD_FILE1
 
-if [ &quot;$PACKAGE1&quot; != &quot;$PACKAGE2&quot; ] ; then
+if [ "$PACKAGE1" != "$PACKAGE2" ] ; then
     curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-linux64/ws/releases/$PACKAGE2 &gt; $PACKAGE2
     curl http://pf-jenkins.qa.mtv2.mozilla.com:8080/job/firefox-nightly-linux64/ws/releases/$BUILD_FILE2 &gt; $BUILD_FILE2
 fi

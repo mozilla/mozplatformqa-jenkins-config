@@ -10,11 +10,12 @@
   </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.5">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.4">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <url>http://github.com/sydvicious/mozplatformqa-jenkins.git</url>
+        <credentialsId>337b81f4-cb01-4443-a97f-d11e9457957f</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -122,3 +123,4 @@
   </publishers>
   <buildWrappers/>
 </project>
+
