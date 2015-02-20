@@ -1,0 +1,52 @@
+Started by timer
+Started by timer
+Building on master in workspace /var/lib/jenkins/jobs/firefox-aurora-linux64/workspace
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/sydvicious/mozplatformqa-jenkins.git # timeout=10
+Fetching upstream changes from https://github.com/sydvicious/mozplatformqa-jenkins.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/sydvicious/mozplatformqa-jenkins.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 14bbb3cb88436338eca862a74b30dd122461a081 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 14bbb3cb88436338eca862a74b30dd122461a081
+ > git rev-list 14bbb3cb88436338eca862a74b30dd122461a081 # timeout=10
+No emails were triggered.
+[workspace] $ /bin/sh -xe /tmp/hudson6726766701097043139.sh
++ bash -x ./maintain_firefox_cache.sh linux64 aurora
++ tests=no
++ '[' linux64 = --tests ']'
++ platform=linux64
++ '[' aurora = '' ']'
++ release=aurora
++ '[' linux64 = '' ']'
++ '[' linux64 = linux64 ']'
++ web_platform=linux-x86_64
++ archive_ext=tar.bz2
++ '[' no = yes ']'
+++ pwd
++ wd=/var/lib/jenkins/jobs/firefox-aurora-linux64/workspace
++ mkdir -p releases
++ cd releases
++ target=firefox-latest-aurora.en-US.linux-x86_64.tar.bz2
++ '[' aurora = nightly ']'
++ '[' aurora = aurora ']'
++ '[' aurora = aurora ']'
++ mozdownload --type=daily --platform=linux64 --extension=tar.bz2 --branch=mozilla-aurora
+  INFO | Retrieving the build status file from https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-aurora/
+  INFO | Retrieving list of builds from https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2014/10
+  INFO | Found 1 build: 2014-10-01-00-40-05-mozilla-aurora
+  INFO | File has already been downloaded: /var/lib/jenkins/jobs/firefox-aurora-linux64/workspace/releases/2014-10-01-00-40-05-mozilla-aurora-firefox-34.0a2.en-US.linux-x86_64.tar.bz2
++ '[' -e firefox-latest-aurora.en-US.linux-x86_64.tar.bz2 ']'
+++ find . -type f -name '*.linux-x86_64.tar.bz2' -newer firefox-latest-aurora.en-US.linux-x86_64.tar.bz2
++ results=
++ '[' x '!=' x ']'
++ repackage_mac_dmg
++ '[' no = no ']'
++ '[' linux64 = mac ']'
++ '[' linux64 = mac64 ']'
++ cd /var/lib/jenkins/jobs/firefox-aurora-linux64/workspace
+No emails were triggered.
+Finished: SUCCESS

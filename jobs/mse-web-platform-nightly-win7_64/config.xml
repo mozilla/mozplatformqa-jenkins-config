@@ -51,7 +51,7 @@
       <spec>H * * * *</spec>
       <entries>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://172.16.141.50:8080/job/firefox-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64-x86_64.zip</url>
+          <url>http://192.168.1.65:8080/job/firefox-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -62,7 +62,7 @@
           <contentTypes/>
         </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://172.16.141.50:8080/job/tests-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64-x86_64.tests.zip</url>
+          <url>http://192.168.1.65:8080/job/tests-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64.tests.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -84,7 +84,7 @@
       <clear>true</clear>
       <systemSitePackages>false</systemSitePackages>
       <nature>shell</nature>
-      <command>c:\mozilla-build\msys\bin\bash -xe ./run-media-source-web-platform.sh http://172.16.141.50:8080/job/firefox-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64-x86_64.zip http://172.16.141.50:8080/job/tests-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64-x86_64.tests.zip win64
+      <command>c:\mozilla-build\msys\bin\bash -xe ./run-media-source-web-platform.sh http://192.168.1.65:8080/job/firefox-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64.zip http://192.168.1.65:8080/job/tests-nightly-win64/ws/releases/firefox-latest-nightly.en-US.win64.tests.zip win64
 </command>
       <ignoreExitCode>false</ignoreExitCode>
     </jenkins.plugins.shiningpanda.builders.VirtualenvBuilder>
