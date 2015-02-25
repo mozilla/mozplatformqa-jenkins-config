@@ -27,7 +27,7 @@
     <submoduleCfg class="list"/>
     <extensions/>
   </scm>
-  <assignedNode>mac10-7</assignedNode>
+  <assignedNode>win64 &amp;&amp; mse &amp;&amp; win7</assignedNode>
   <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -35,7 +35,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>trigger-firefox-aurora-mac, trigger-tests-aurora-mac</upstreamProjects>
+      <upstreamProjects>trigger-firefox-beta-win32, trigger-tests-beta-win32</upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -51,7 +51,7 @@
       <spec>H * * * *</spec>
       <entries>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://192.168.1.65:8080/job/firefox-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.dmg</url>
+          <url>http://192.168.1.65:8080/job/firefox-beta-win32/ws/releases/firefox-latest-beta.en-US.win32.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -62,7 +62,7 @@
           <contentTypes/>
         </org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
         <org.jenkinsci.plugins.urltrigger.URLTriggerEntry>
-          <url>http://192.168.1.65:8080/job/tests-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.tests.zip</url>
+          <url>http://192.168.1.65:8080/job/tests-beta-win32/ws/releases/firefox-latest-beta.en-US.win32.tests.zip</url>
           <proxyActivated>false</proxyActivated>
           <checkStatus>false</checkStatus>
           <statusCode>200</statusCode>
@@ -79,12 +79,12 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <jenkins.plugins.shiningpanda.builders.VirtualenvBuilder plugin="shiningpanda@0.21">
-      <pythonName>System-CPython-2.7</pythonName>
+      <pythonName>Win-Moz-Python</pythonName>
       <home>jenkinspy</home>
       <clear>true</clear>
       <systemSitePackages>false</systemSitePackages>
       <nature>shell</nature>
-      <command>bash -xe ./run-media-source-web-platform.sh http://192.168.1.65:8080/job/firefox-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.dmg http://192.168.1.65:8080/job/tests-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.tests.zip mac
+      <command>c:\mozilla-build\msys\bin\bash -xe ./run-media-source-web-platform.sh http://192.168.1.65:8080/job/firefox-beta-win32/ws/releases/firefox-latest-beta.en-US.win32.zip http://192.168.1.65:8080/job/tests-beta-win32/ws/releases/firefox-latest-beta.en-US.win32.tests.zip win32
 </command>
       <ignoreExitCode>false</ignoreExitCode>
     </jenkins.plugins.shiningpanda.builders.VirtualenvBuilder>
