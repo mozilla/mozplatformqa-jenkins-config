@@ -39,7 +39,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>bash -x ./maintain_firefox_cache.sh mac aurora
+      <command>#!/bin/sh -x
+
+bash -x ./maintain_firefox_cache.sh mac aurora
 
 </command>
     </hudson.tasks.Shell>

@@ -40,22 +40,6 @@
       <nodeProperties/>
       <userId>sydpolk</userId>
     </slave>
-    <slave>
-      <name>mac</name>
-      <description></description>
-      <remoteFS>/Users/mozilla/jenkins</remoteFS>
-      <numExecutors>1</numExecutors>
-      <mode>NORMAL</mode>
-      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
-      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.7.1">
-        <host>10.252.73.250</host>
-        <port>22</port>
-        <credentialsId>a19cdd4f-53f3-4812-9b05-3f4f87138578</credentialsId>
-      </launcher>
-      <label>mac</label>
-      <nodeProperties/>
-      <userId>sydpolk</userId>
-    </slave>
   </slaves>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
@@ -99,6 +83,7 @@
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
         <string>aurora-mac10_9-win81_32_64</string>
         <string>aurora-ubuntu14_32-win81_32_64</string>
+        <string>aurora-ubuntu14_64-win61_32</string>
         <string>aurora-ubuntu14_64-win61_32_64</string>
         <string>aurora-win81_32_64-mac10_9</string>
         <string>aurora-win81_32_64-ubuntu14_32</string>
@@ -339,7 +324,7 @@
           <default>
             <comparator class="hudson.util.CaseInsensitiveComparator"/>
           </default>
-          <int>9</int>
+          <int>11</int>
           <string>MAC_10_9_1</string>
           <string>10.252.73.236</string>
           <string>MAC_10_9_2</string>
@@ -354,6 +339,10 @@
           <string>pf-ubuntu14-64-01.qa.mtv2.mozilla.com</string>
           <string>UBUNTU14_64_2</string>
           <string>pf-ubuntu14-64-02.qa.mtv2.mozilla.com</string>
+          <string>WIN81_32_1</string>
+          <string>10.252.73.254</string>
+          <string>WIN81_32_2</string>
+          <string>10.252.73.232</string>
           <string>WIN81_64_1</string>
           <string>10.252.73.248</string>
           <string>WIN81_64_2</string>

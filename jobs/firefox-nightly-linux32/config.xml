@@ -39,7 +39,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>bash -x ./maintain_firefox_cache.sh linux
+      <command>#!/bin/sh -x
+
+bash -x ./maintain_firefox_cache.sh linux
 </command>
     </hudson.tasks.Shell>
   </builders>

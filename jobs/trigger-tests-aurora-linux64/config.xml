@@ -15,7 +15,7 @@
       <spec>H/3 * * * *</spec>
       <fileInfo>
         <org.jenkinsci.plugins.fstrigger.triggers.FileNameTriggerInfo>
-          <filePathPattern>/var/lib/jenkins/jobs/tests-aurora-linux64/workspace/releases/firefox-latest-aurora.en-US.linux-x86_64.tests.zip</filePathPattern>
+          <filePathPattern>/var/lib/jenkins/jenkins/jobs/tests-aurora-linux64/workspace/releases/firefox-latest-aurora.en-US.linux-x86_64.tests.zip</filePathPattern>
           <strategy>LATEST</strategy>
           <inspectingContentFile>false</inspectingContentFile>
           <doNotCheckLastModificationDate>false</doNotCheckLastModificationDate>
@@ -28,7 +28,7 @@
   <builders/>
   <publishers>
     <hudson.plugins.downstream__ext.DownstreamTrigger plugin="downstream-ext@1.8">
-      <childProjects>expand-tests-aurora-linux64</childProjects>
+      <childProjects>expand-tests-aurora-linux64, expand-tests-aurora-linux64-network</childProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>
@@ -39,7 +39,7 @@
       <onlyIfSCMChanges>false</onlyIfSCMChanges>
       <onlyIfLocalSCMChanges>false</onlyIfLocalSCMChanges>
     </hudson.plugins.downstream__ext.DownstreamTrigger>
-    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.39">
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.38.2">
       <recipientList>$DEFAULT_RECIPIENTS</recipientList>
       <configuredTriggers>
         <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
@@ -112,7 +112,6 @@
       <compressBuildLog>false</compressBuildLog>
       <replyTo>$DEFAULT_REPLYTO</replyTo>
       <saveOutput>false</saveOutput>
-      <disabled>false</disabled>
     </hudson.plugins.emailext.ExtendedEmailPublisher>
   </publishers>
   <buildWrappers/>

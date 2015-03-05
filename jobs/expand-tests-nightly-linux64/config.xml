@@ -7,7 +7,7 @@
   <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
     <urls>
       <hudson.plugins.URLSCM.URLSCM_-URLTuple>
-        <urlString>http://172.16.141.50:8080/job/tests-nightly-linux64/ws/releases/firefox-latest-nightly.en-US.linux-x86_64.tests.zip</urlString>
+        <urlString>http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/tests/job/tests-nightly-linux64/ws/releases/firefox-latest-nightly.en-US.linux-x86_64.tests.zip</urlString>
       </hudson.plugins.URLSCM.URLSCM_-URLTuple>
     </urls>
     <clearWorkspace>true</clearWorkspace>
@@ -32,7 +32,7 @@ unzip -u -o $WORKSPACE/firefox-latest-nightly.en-US.linux-x86_64.tests.zip
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.39">
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.38.2">
       <recipientList>$DEFAULT_RECIPIENTS</recipientList>
       <configuredTriggers>
         <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
@@ -105,7 +105,6 @@ unzip -u -o $WORKSPACE/firefox-latest-nightly.en-US.linux-x86_64.tests.zip
       <compressBuildLog>false</compressBuildLog>
       <replyTo>$DEFAULT_REPLYTO</replyTo>
       <saveOutput>false</saveOutput>
-      <disabled>false</disabled>
     </hudson.plugins.emailext.ExtendedEmailPublisher>
   </publishers>
   <buildWrappers/>

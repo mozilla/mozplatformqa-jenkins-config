@@ -3,14 +3,14 @@
   <actions/>
   <description></description>
   <logRotator class="hudson.tasks.LogRotator">
-    <daysToKeep>-1</daysToKeep>
-    <numToKeep>-1</numToKeep>
+    <daysToKeep>10</daysToKeep>
+    <numToKeep>30</numToKeep>
     <artifactDaysToKeep>-1</artifactDaysToKeep>
     <artifactNumToKeep>1</artifactNumToKeep>
   </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.4">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -43,7 +43,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>bash -x ./maintain_firefox_cache.sh --tests linux64 aurora</command>
+      <command>#!/bin/sh -x
+
+bash -x ./maintain_firefox_cache.sh --tests linux64 aurora</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

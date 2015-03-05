@@ -2,34 +2,50 @@
 <project>
   <actions/>
   <description></description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>10</daysToKeep>
+    <numToKeep>30</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>-1</artifactNumToKeep>
+  </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties/>
-  <scm class="hudson.plugins.URLSCM.URLSCM" plugin="URLSCM@1.6">
-    <urls>
-      <hudson.plugins.URLSCM.URLSCM_-URLTuple>
-        <urlString>http://pf-jenkins.qa.mtv2.mozilla.com:8080/view/firefox/job/firefox-aurora-mac/ws/releases/firefox-latest-aurora.en-US.mac.tar.bz2</urlString>
-      </hudson.plugins.URLSCM.URLSCM_-URLTuple>
-    </urls>
-    <clearWorkspace>true</clearWorkspace>
-  </scm>
-  <assignedNode>steeplechase</assignedNode>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>master</assignedNode>
   <canRoam>false</canRoam>
-  <disabled>true</disabled>
+  <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers/>
+  <triggers>
+    <org.jenkinsci.plugins.fstrigger.triggers.FileNameTrigger plugin="fstrigger@0.39">
+      <spec>H/3 * * * *</spec>
+      <fileInfo>
+        <org.jenkinsci.plugins.fstrigger.triggers.FileNameTriggerInfo>
+          <filePathPattern>/var/lib/jenkins/jenkins/jobs/tests-nightly-win32/workspace/releases/firefox-latest-nightly.en-US.win32.tests.zip</filePathPattern>
+          <strategy>LATEST</strategy>
+          <inspectingContentFile>false</inspectingContentFile>
+          <doNotCheckLastModificationDate>false</doNotCheckLastModificationDate>
+          <contentFileTypes/>
+        </org.jenkinsci.plugins.fstrigger.triggers.FileNameTriggerInfo>
+      </fileInfo>
+    </org.jenkinsci.plugins.fstrigger.triggers.FileNameTrigger>
+  </triggers>
   <concurrentBuild>false</concurrentBuild>
-  <builders>
-    <hudson.tasks.Shell>
-      <command>export DEST=/home/mozilla/firefoxes/aurora/macosx
-mkdir -p $DEST
-cd $DEST
-tar xvfj $WORKSPACE/firefox-latest-aurora.en-US.mac.tar.bz2
-</command>
-    </hudson.tasks.Shell>
-  </builders>
+  <builders/>
   <publishers>
-    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.38.2">
+    <hudson.plugins.downstream__ext.DownstreamTrigger plugin="downstream-ext@1.8">
+      <childProjects>expand-tests-nightly-win32</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+        <completeBuild>true</completeBuild>
+      </threshold>
+      <thresholdStrategy>AND_HIGHER</thresholdStrategy>
+      <onlyIfSCMChanges>false</onlyIfSCMChanges>
+      <onlyIfLocalSCMChanges>false</onlyIfLocalSCMChanges>
+    </hudson.plugins.downstream__ext.DownstreamTrigger>
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.39">
       <recipientList>$DEFAULT_RECIPIENTS</recipientList>
       <configuredTriggers>
         <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
@@ -102,6 +118,7 @@ tar xvfj $WORKSPACE/firefox-latest-aurora.en-US.mac.tar.bz2
       <compressBuildLog>false</compressBuildLog>
       <replyTo>$DEFAULT_REPLYTO</replyTo>
       <saveOutput>false</saveOutput>
+      <disabled>false</disabled>
     </hudson.plugins.emailext.ExtendedEmailPublisher>
   </publishers>
   <buildWrappers/>
