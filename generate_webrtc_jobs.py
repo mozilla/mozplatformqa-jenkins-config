@@ -26,7 +26,8 @@ REGEXPS = {
     'machine2': r'XXMACHINE2XX',
     'arch2': r'XXARCH2XX',
     'triggers': r'XXTRIGGERSXX',
-    'slave': r'XXSLAVEXX'
+    'slave': r'XXSLAVEXX',
+    'sigserver': r'XXXSIGSERVERXXX'
 }
 
 for key in REGEXPS:
@@ -119,6 +120,9 @@ class GenerateJobs():
                 expand = 'expand-tests-%s-linux64' % tests
                 if row['Networking']:
                     expand = '%s-network' % expand
+                    sigserver = "NETWORK_SIGNALLING_SERVER"
+                else:
+                    sigserver = "SIGNALLING_SERVER"
 
                 url1 = '%s/job/firefox-%s-%s/ws/releases' % (self.config['host'], row['Release1'], row['Platform1'])
                 url2 = '%s/job/firefox-%s-%s/ws/releases' % (self.config['host'], row['Release2'], row['Platform2'])
@@ -147,6 +151,7 @@ class GenerateJobs():
                 template = re.sub(REGEXPS['arch1'], row['Arch1'], template)
                 template = re.sub(REGEXPS['arch2'], row['Arch2'], template)
                 template = re.sub(REGEXPS['slave'], row['Slave'], template)
+                template = re.sub(REGEXPS['sigserver'], sigserver, template)
 
                 # Generate directory
                 dir = os.path.join('jobs', jobname)
