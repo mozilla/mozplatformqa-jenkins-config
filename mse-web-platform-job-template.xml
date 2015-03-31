@@ -27,7 +27,7 @@
     <submoduleCfg class="list"/>
     <extensions/>
   </scm>
-  <assignedNode>XXSLAVEXX</assignedNode>
+  <assignedNode>mse && XXSLAVEXX</assignedNode>
   <canRoam>false</canRoam>
   <disabled>true</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
