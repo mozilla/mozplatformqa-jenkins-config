@@ -27,7 +27,8 @@ REGEXPS = {
     'arch2': r'XXARCH2XX',
     'triggers': r'XXTRIGGERSXX',
     'slave': r'XXSLAVEXX',
-    'sigserver': r'XXXSIGSERVERXXX'
+    'sigserver': r'XXXSIGSERVERXXX',
+    'tests_release': r'XXXTESTSRELEASEXXX'
 }
 
 for key in REGEXPS:
@@ -115,9 +116,9 @@ class GenerateJobs():
                 if row['Release1'] != row['Release2'] or row['Platform1'] != row['Platform2']:
                     triggers = '%s,trigger-firefox-%s-%s' % (triggers, row['Release2'], row['Platform2'])
 
-                tests = self.get_lowest_release(row['Release1'], row['Release2'])
+                tests_release = self.get_lowest_release(row['Release1'], row['Release2'])
 
-                expand = 'expand-tests-%s-linux64' % tests
+                expand = 'expand-tests-%s-linux64' % tests_release
                 if row['Networking']:
                     expand = '%s-network' % expand
                     sigserver = "NETWORK_SIGNALLING_SERVER"
@@ -152,6 +153,7 @@ class GenerateJobs():
                 template = re.sub(REGEXPS['arch2'], row['Arch2'], template)
                 template = re.sub(REGEXPS['slave'], row['Slave'], template)
                 template = re.sub(REGEXPS['sigserver'], sigserver, template)
+                template = re.sub(REGEXPS['tests_release'], tests_release, template)
 
                 # Generate directory
                 dir = os.path.join('jobs', jobname)
