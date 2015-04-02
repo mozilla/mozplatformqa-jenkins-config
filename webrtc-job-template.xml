@@ -128,7 +128,7 @@ if [ "$PACKAGE1" != "$PACKAGE2" ] ; then
     curl XXURL2XX/$BUILD_FILE2 &gt; $BUILD_FILE2
 fi
 
-python `pwd`/mozplatformqa-jenkins/jenkinsherder.py --steeplechase `pwd`/steeplechase/steeplechase/runsteeplechase.py --package $PACKAGE1 --package2 $PACKAGE2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/prefs_general.js --signalling-server $XXXSIGSERVERXXX --html-manifest /home/mozilla/firefoxes/aurora/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MACHINE1:20701 --arch1 $ARCH1 --host2 $MACHINE2:20701 --arch2 $ARCH2
+python `pwd`/mozplatformqa-jenkins/jenkinsherder.py --steeplechase `pwd`/steeplechase/steeplechase/runsteeplechase.py --package $PACKAGE1 --package2 $PACKAGE2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/XXXTESTSREEASEXXX/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/XXXTESTSRELEASEXXX/linux64/tests/steeplechase/prefs_general.js --signalling-server $XXXSIGSERVERXXX --html-manifest /home/mozilla/firefoxes/XXXTESTSRELEASEXXX/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MACHINE1:20701 --arch1 $ARCH1 --host2 $MACHINE2:20701 --arch2 $ARCH2
 </command>
     </hudson.tasks.Shell>
   </builders>
