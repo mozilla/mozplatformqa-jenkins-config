@@ -28,15 +28,119 @@ REGEXPS = {
     'triggers': r'XXTRIGGERSXX',
     'slave': r'XXSLAVEXX',
     'sigserver': r'XXXSIGSERVERXXX',
-    'tests_release': r'XXXTESTSRELEASEXXX'
+    'tests_release': r'XXXTESTSRELEASEXXX',
+    'os1': r'XXOS1XX',
+    'os2': r'XXOS2XX',
 }
 
 for key in REGEXPS:
     REGEXPS[key] = re.compile(REGEXPS[key])
 
+platform_host_data = {
+    'linux32': {
+        'arch': 'i686' ,
+        'platform': 'linux32',
+        'os': 'linux-32',
+        'extension': 'tar.bz2',
+        'artifact_platform': 'linux-i686',
+    },
+    'linux64': {
+        'arch': 'x86_64',
+        'platform': 'linux64',
+        'os': 'linux-64',
+        'extension': 'tar.bz2',
+        'artifact_platform': 'linux-x86_64',
+    },
+    'mac': {
+        'arch': 'x86_64',
+        'platform': 'mac',
+        'os': 'mac-10.10',
+        'extension': 'dmg',
+        'artifact_platform': 'mac',
+    },
+    'mac10_6_32': {
+        'arch': 'i686',
+        'platform': 'mac',
+        'os': 'mac-10.6',
+        'extension': 'dmg',
+        'artifact_platform': 'mac',
+    },
+    'mac10_7_64': {
+        'arch': 'x86_64',
+        'platform': 'mac',
+        'os': 'mac-10.7',
+        'extension': 'dmg',
+        'artifact_platform': 'mac',
+    },
+    'mac10_8': {
+        'arch': 'x86_64',
+        'platform': 'mac',
+        'os': 'mac-10.8',
+        'extension': 'dmg',
+        'artifact_platform': 'mac',
+    },
+    'mac10_9': {
+        'arch': 'x86_64',
+        'platform': 'mac',
+        'os': 'mac-10.9',
+        'extension': 'dmg',
+        'artifact_platform': 'mac',
+    },
+    'win32': {
+        'arch': 'i686',
+        'platform': 'win32',
+        'os': 'win8-32',
+        'extension': 'zip',
+        'artifact_platform': 'win32',
+    },
+    'win32_64': {
+        'arch': 'i686',
+        'platform': 'win32',
+        'os': 'win8-64',
+        'extension': 'zip',
+        'artifact_platform': 'win32',
+    },
+    'win7_32': {
+        'arch': 'i686',
+        'platform': 'win32',
+        'os': 'win7-32',
+        'extension': 'zip',
+        'artifact_platform': 'win32',
+    },
+    'win7_32_64': {
+        'arch': 'i686',
+        'platform': 'win32',
+        'os': 'win7-64',
+        'extension': 'zip',
+        'artifact_platform': 'win32',
+    },
+    'win7_64': {
+        'arch': 'x86_64',
+        'platform': 'win64',
+        'os': 'win7-64',
+        'extension': 'zip',
+        'artifact_platform': 'win64',
+    },
+    'winxp_32': {
+        'arch': 'i686',
+        'platform': 'win32',
+        'os': 'winxp-32',
+        'extension': 'zip',
+        'artifact_platform': 'win32',
+    },
+    'win64': {
+        'arch': 'x86_64',
+        'platform': 'win64',
+        'os': 'win8-64',
+        'extension': 'zip',
+        'artifact_platform': 'win64',
+    },
+}
+
 class JobGenerator():
     def __init__(self):
         pass
+
 
 class GenerateJobs():
     def __init__(self, argv):
@@ -62,25 +166,6 @@ class GenerateJobs():
                 self.template=myfile.read()
         data = self.template
         return data
-
-    def get_platform_extension(self, platform):
-        if platform == 'linux64' or platform == 'linux32' or platform == 'linux':
-            return 'tar.bz2'
-        elif platform == 'win32' or platform == 'win64':
-            return 'zip'
-        elif platform == 'mac' or platform == 'mac64':
-            return 'dmg'
-        raise 'Unknown platform %s' % platform
-
-    def get_artifact_platform(self, platform):
-        if platform == 'linux64':
-            return 'linux-x86_64'
-        elif platform == 'linux32':
-            return 'linux-i686'
-        elif platform == 'win64':
-            return 'win64'
-        else:
-            return platform
 
     def get_lowest_release(self, release1, release2):
         if release1 == 'esr' or release2 == 'esr':
@@ -128,11 +213,11 @@ class GenerateJobs():
                 url1 = '%s/job/firefox-%s-%s/ws/releases' % (self.config['host'], row['Release1'], row['Platform1'])
                 url2 = '%s/job/firefox-%s-%s/ws/releases' % (self.config['host'], row['Release2'], row['Platform2'])
 
-                artifact_platform1 = self.get_artifact_platform(row['Platform1'])
-                artifact_platform2 = self.get_artifact_platform(row['Platform2'])
+                artifact_platform1 = platform_host_data[row['Platform1']]['artifact_platform']
+                artifact_platform2 = platform_host_data[row['Platform2']]['artifact_platform']
 
-                package1 = 'firefox-latest-%s.en-US.%s.%s' % (row['Release1'], artifact_platform1, self.get_platform_extension(row['Platform1']))
-                package2 = 'firefox-latest-%s.en-US.%s.%s' % (row['Release2'], artifact_platform2, self.get_platform_extension(row['Platform2']))
+                package1 = 'firefox-latest-%s.en-US.%s.%s' % (row['Release1'], artifact_platform1, platform_host_data[row['Platform1']]['extension'])
+                package2 = 'firefox-latest-%s.en-US.%s.%s' % (row['Release2'], artifact_platform2, platform_host_data[row['Platform2']]['extension'])
 
                 build_file1 = 'firefox-latest-%s.en-US.%s.txt' % (row['Release1'], artifact_platform1)
                 build_file2 = 'firefox-latest-%s.en-US.%s.txt' % (row['Release2'], artifact_platform2)
@@ -154,6 +239,8 @@ class GenerateJobs():
                 template = re.sub(REGEXPS['slave'], row['Slave'], template)
                 template = re.sub(REGEXPS['sigserver'], sigserver, template)
                 template = re.sub(REGEXPS['tests_release'], tests_release, template)
+                template = re.sub(REGEXPS['os1'], platform_host_data[row['Platform1']]['os'], template)
+                template = re.sub(REGEXPS['os2'], platform_host_data[row['Platform2']]['os'], template)
 
                 # Generate directory
                 dir = os.path.join('jobs', jobname)

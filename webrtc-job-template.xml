@@ -114,11 +114,13 @@ PACKAGE1=XXPACKAGE1XX
 BUILD_FILE1=XXBUILD_FILE1XX
 MACHINE1=XXMACHINE1XX
 ARCH1=XXARCH1XX
+OS1=XXOS1XX
 
 PACKAGE2=XXPACKAGE2XX
 BUILD_FILE2=XXBUILD_FILE2XX
 MACHINE2=XXMACHINE2XX
 ARCH2=XXARCH2XX
+OS2=XXOS2XX
 
 curl XXURL1XX/$PACKAGE1 &gt; $PACKAGE1
 curl XXURL1XX/$BUILD_FILE1 &gt; $BUILD_FILE1
@@ -128,7 +130,7 @@ if [ "$PACKAGE1" != "$PACKAGE2" ] ; then
     curl XXURL2XX/$BUILD_FILE2 &gt; $BUILD_FILE2
 fi
 
-python `pwd`/mozplatformqa-jenkins/jenkinsherder.py --steeplechase `pwd`/steeplechase/steeplechase/runsteeplechase.py --package $PACKAGE1 --package2 $PACKAGE2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/XXXTESTSRELEASEXXX/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/XXXTESTSRELEASEXXX/linux64/tests/steeplechase/prefs_general.js --signalling-server $XXXSIGSERVERXXX --html-manifest /home/mozilla/firefoxes/XXXTESTSRELEASEXXX/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MACHINE1:20701 --arch1 $ARCH1 --host2 $MACHINE2:20701 --arch2 $ARCH2
+python `pwd`/mozplatformqa-jenkins/jenkinsherder.py --steeplechase `pwd`/steeplechase/steeplechase/runsteeplechase.py --package $PACKAGE1 --package2 $PACKAGE2 --save-logs-to `pwd`/logs --specialpowers-path /home/mozilla/firefoxes/XXXTESTSRELEASEXXX/linux64/tests/steeplechase/specialpowers --prefs-file /home/mozilla/firefoxes/XXXTESTSRELEASEXXX/linux64/tests/steeplechase/prefs_general.js --signalling-server $XXXSIGSERVERXXX --html-manifest /home/mozilla/firefoxes/XXXTESTSRELEASEXXX/linux64/tests/steeplechase/tests/steeplechase.ini --host1 $MACHINE1:20701 --arch1 $ARCH1 --host2 $MACHINE2:20701 --arch2 $ARCH2 --os1 $OS1 --os2 $OS2 --treeherder-url $TREEHERDER_URL --treeherder-credentials-path $TREEHERDER_CREDENTIALS
 </command>
     </hudson.tasks.Shell>
   </builders>
