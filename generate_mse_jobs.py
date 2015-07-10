@@ -17,7 +17,8 @@ REGEXPS = {
     'url1': r'XXURL1XX',
     'package': r'XXPACKAGEXX',
     'url2': r'XXURL2XX',
-    'tests': r'XXTESTSXX',
+    'common_tests': r'XXCOMMONTESTSXX',
+    'web_platform_tests': r'XXWEBPLATFORMTESTSXX',
     'triggers': r'XXTRIGGERSXX',
     'expand': r'XXEXPANDXX',
     'slave': r'XXSLAVEXX',
@@ -110,7 +111,8 @@ class GenerateJobs():
                 artifact_platform = self.get_artifact_platform(row['Platform'])
 
                 package = 'firefox-latest-%s.en-US.%s.%s' % (row['Release'], artifact_platform, self.get_platform_extension(row['Platform']))
-                tests = 'firefox-latest-%s.en-US.%s.tests.zip' % (row['Release'], artifact_platform)
+                common_tests = 'firefox-latest-%s.en-US.%s.common.tests.zip' % (row['Release'], artifact_platform)
+                web_platform_tests = 'firefox-latest-%s.en-US.%s.web-platform.tests.zip' % (row['Release'], artifact_platform)
 
                 # We will need build_file for reporting results to treeherder
                 # build_file = 'firefox-latest-%s.en-US.%s.txt' % (row['Release'], artifact_platform1)
@@ -121,7 +123,8 @@ class GenerateJobs():
                 template = re.sub(REGEXPS['url1'], url1, template)
                 template = re.sub(REGEXPS['url2'], url2, template)
                 template = re.sub(REGEXPS['package'], package, template)
-                template = re.sub(REGEXPS['tests'], tests, template)
+                template = re.sub(REGEXPS['common_tests'], common_tests, template)
+                template = re.sub(REGEXPS['web_platform_tests'], web_platform_tests, template)
                 template = re.sub(REGEXPS['slave'], row['Slave'], template)
                 template = re.sub(REGEXPS['platform'], row['Platform'], template)
                 template = re.sub(REGEXPS['python'], row['Python'], template)
