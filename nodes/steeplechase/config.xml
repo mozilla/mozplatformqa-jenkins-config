@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<slave>
+  <name>steeplechase</name>
+  <description></description>
+  <remoteFS>/home/mozilla/jenkins</remoteFS>
+  <numExecutors>1</numExecutors>
+  <mode>NORMAL</mode>
+  <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+  <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.9">
+    <host>pf-steeplechase.qa.mtv2.mozilla.com</host>
+    <port>22</port>
+    <credentialsId>a19cdd4f-53f3-4812-9b05-3f4f87138578</credentialsId>
+    <maxNumRetries>0</maxNumRetries>
+    <retryWaitTime>0</retryWaitTime>
+  </launcher>
+  <label>steeplechase</label>
+  <nodeProperties/>
+  <userId>anonymous</userId>
+</slave>

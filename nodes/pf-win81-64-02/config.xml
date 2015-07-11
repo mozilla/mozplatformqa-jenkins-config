@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<slave>
+  <name>pf-win81-64-02</name>
+  <description></description>
+  <remoteFS>c:/jenkins</remoteFS>
+  <numExecutors>1</numExecutors>
+  <mode>NORMAL</mode>
+  <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
+  <launcher class="hudson.slaves.JNLPLauncher"/>
+  <label>mse win64 win81 win</label>
+  <nodeProperties/>
+  <userId>anonymous</userId>
+</slave>
