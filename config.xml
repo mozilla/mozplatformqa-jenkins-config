@@ -4,8 +4,11 @@
     <string>jenkins.diagnostics.SecurityIsOffMonitor</string>
     <string>hudson.diagnosis.TooManyJobsButNoView</string>
     <string>hudson.diagnosis.ReverseProxySetupMonitor</string>
+    <string>jenkins.security.s2m.MasterKillSwitchWarning</string>
+    <string>jenkins.model.DownloadSettings$Warning</string>
+    <string>hudson.node_monitors.MonitorMarkedNodeOffline</string>
   </disabledAdministrativeMonitors>
-  <version>1.583</version>
+  <version>1.616</version>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -23,24 +26,6 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds/>
-  <slaves>
-    <slave>
-      <name>steeplechase</name>
-      <description></description>
-      <remoteFS>/home/mozilla/jenkins</remoteFS>
-      <numExecutors>1</numExecutors>
-      <mode>NORMAL</mode>
-      <retentionStrategy class="hudson.slaves.RetentionStrategy$Always"/>
-      <launcher class="hudson.plugins.sshslaves.SSHLauncher" plugin="ssh-slaves@1.7.1">
-        <host>pf-steeplechase.qa.mtv2.mozilla.com</host>
-        <port>22</port>
-        <credentialsId>a19cdd4f-53f3-4812-9b05-3f4f87138578</credentialsId>
-      </launcher>
-      <label>steeplechase</label>
-      <nodeProperties/>
-      <userId>sydpolk</userId>
-    </slave>
-  </slaves>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
   <views>
@@ -53,7 +38,7 @@
     </hudson.model.AllView>
     <listView>
       <owner class="hudson" reference="../../.."/>
-      <name>nightly</name>
+      <name>webrtc-nightly</name>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
@@ -70,25 +55,17 @@
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
       </columns>
-      <includeRegex>^nightly.*</includeRegex>
+      <includeRegex>^webrtc-nightly.*</includeRegex>
       <recurse>false</recurse>
     </listView>
     <listView>
       <owner class="hudson" reference="../../.."/>
-      <name>aurora</name>
+      <name>webrtc-aurora</name>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
-        <string>aurora-mac10_9-win81_32_64</string>
-        <string>aurora-ubuntu14_32-win81_32_64</string>
-        <string>aurora-ubuntu14_64-win61_32</string>
-        <string>aurora-ubuntu14_64-win61_32_64</string>
-        <string>aurora-win81_32_64-mac10_9</string>
-        <string>aurora-win81_32_64-ubuntu14_32</string>
-        <string>aurora-win81_32_64-ubuntu14_64</string>
-        <string>aurora-win81_32_64-win81_32_64</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -100,7 +77,7 @@
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
       </columns>
-      <includeRegex>^aurora.*|^nightly.*aurora.*</includeRegex>
+      <includeRegex>^webrtc-aurora.*|^webrtc-nightly.*aurora.*</includeRegex>
       <recurse>false</recurse>
     </listView>
     <listView>
@@ -137,6 +114,14 @@
         <string>aurora-mac-linux32</string>
         <string>aurora-mac-linux64</string>
         <string>aurora-mac-mac</string>
+        <string>aurora-mac10_7_64-nightly-mac</string>
+        <string>aurora-mac10_9-nightly-mac</string>
+        <string>nightly-mac-aurora-mac10_7_64</string>
+        <string>nightly-mac-aurora-mac10_9</string>
+        <string>nightly-mac-mac10_7_64</string>
+        <string>nightly-mac-mac10_9</string>
+        <string>nightly-mac10_7_64-mac</string>
+        <string>nightly-mac10_9-mac</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -181,7 +166,21 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
+        <string>expand-tests-aurora-linux64-network</string>
+        <string>expand-tests-aurora-mac</string>
+        <string>tests-aurora-mac</string>
+        <string>tests-aurora-win32</string>
+        <string>tests-aurora-win64</string>
+        <string>tests-beta-linux32</string>
+        <string>tests-beta-linux64</string>
+        <string>tests-beta-mac</string>
+        <string>tests-beta-win32</string>
+        <string>tests-nightly-win64</string>
+        <string>trigger-tests-aurora-mac</string>
+        <string>trigger-tests-aurora-win32</string>
+        <string>trigger-tests-aurora-win64</string>
         <string>trigger-tests-nightly-linux64</string>
+        <string>trigger-tests-nightly-win64</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -205,6 +204,11 @@
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView/jobNames/comparator"/>
         <string>firefox-aurora-win32</string>
+        <string>firefox-aurora-win64</string>
+        <string>firefox-beta-linux32</string>
+        <string>firefox-beta-linux64</string>
+        <string>firefox-beta-mac</string>
+        <string>firefox-beta-win32</string>
         <string>firefox-nightly-win32</string>
       </jobNames>
       <jobFilters/>
@@ -228,7 +232,13 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>nightly-mac10_9-win81_32_64</string>
+        <string>aurora-win7_32-nightly-linux64</string>
+        <string>aurora-win7_32_64-nightly-linux64</string>
+        <string>aurora-winxp_32-nightly-linux64</string>
+        <string>nightly-win32_64-win32</string>
+        <string>nightly-win7_32-win32</string>
+        <string>nightly-winxp_32-aurora-win32_64</string>
+        <string>nightly-winxp_32-win32</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -240,7 +250,7 @@
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
       </columns>
-      <includeRegex>.*win32.*|.*win81_32.*</includeRegex>
+      <includeRegex>.*win32.*|.*win81_32.*|.*win7_32.*|.*winxp_32.*</includeRegex>
       <recurse>false</recurse>
     </listView>
     <listView>
@@ -251,8 +261,10 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[8]/jobNames/comparator"/>
-        <string>nightly-ubuntu14_64-win81_64</string>
-        <string>nightly-win81_64-win81_64</string>
+        <string>nightly-win64-win7_64</string>
+        <string>nightly-win64-winxp_64</string>
+        <string>nightly-win7_64-win64</string>
+        <string>nightly-winxp_64-win64</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -264,7 +276,7 @@
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
       </columns>
-      <includeRegex>.*win64.*|.*win81_64.*</includeRegex>
+      <includeRegex>.*win64.*|.*win81_64.*|.*win7_64.*</includeRegex>
       <recurse>false</recurse>
     </listView>
     <listView>
@@ -275,6 +287,16 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>trigger-firefox-aurora-win64</string>
+        <string>trigger-firefox-beta-linux32</string>
+        <string>trigger-firefox-beta-linux64</string>
+        <string>trigger-firefox-beta-mac</string>
+        <string>trigger-firefox-beta-win32</string>
+        <string>trigger-symbols-beta-win32</string>
+        <string>trigger-tests-beta-linux64</string>
+        <string>trigger-tests-beta-mac</string>
+        <string>trigger-tests-beta-win32</string>
+        <string>trigger-tests-nightly-win32</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -297,6 +319,8 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>expand-tests-beta-linux64-network</string>
+        <string>expand-tests-nightly-win32</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -309,6 +333,266 @@
         <hudson.views.BuildButtonColumn/>
       </columns>
       <includeRegex>^expand.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>webrtc-turn</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>^webrtc-.*-turn-.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>hello</name>
+      <filterExecutors>true</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>hello-e2e-marionette</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>mse</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>mse-web-platform-aurora-mac</string>
+        <string>mse-web-platform-aurora-mac10_9</string>
+        <string>mse-web-platform-win-32_64</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>mse-.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>chrome</name>
+      <filterExecutors>true</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>^chrome.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>webrtc-beta</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>webrtc-beta.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>mario-mse</name>
+      <description>Marionette video playback tests</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>mn-eme-netflix-nightly-win7_32_64</string>
+        <string>mn-mse-youtube-basic-y-aurora-mac</string>
+        <string>mn-mse-youtube-basic-y-nightly-mac</string>
+        <string>mn-mse-youtube-default-aurora-mac</string>
+        <string>mn-mse-youtube-default-beta-win7_32_64</string>
+        <string>mn-mse-youtube-default-nightly-win_32_64</string>
+        <string>mn-mse-youtube-long2-720-debug-central-win7_32_64</string>
+        <string>mn-mse-youtube-medium1-60-beta-win_32_64</string>
+        <string>mn-mse-youtube-medium1-60-nightly-win7_32_64</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>mn-mse.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>webrtc</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[17]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>^webrtc-.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>symbols</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>symbols-aurora-mac</string>
+        <string>symbols-aurora-win32</string>
+        <string>symbols-nightly-mac</string>
+        <string>symbols-nightly-win32</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>symbols-.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>beta</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*beta.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>enabled</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*</includeRegex>
+      <recurse>false</recurse>
+      <statusFilter>true</statusFilter>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>temp</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[21]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>temp.*</includeRegex>
       <recurse>false</recurse>
     </listView>
   </views>
@@ -324,29 +608,57 @@
           <default>
             <comparator class="hudson.util.CaseInsensitiveComparator"/>
           </default>
-          <int>11</int>
+          <int>25</int>
+          <string>LINUX32_1</string>
+          <string>pf-ubuntu14-32-01.qa.mtv2.mozilla.com</string>
+          <string>LINUX64_1</string>
+          <string>pf-ubuntu14-64-01.qa.mtv2.mozilla.com</string>
+          <string>MAC_1</string>
+          <string>pf-mac10-10-01.qa.mtv2.mozilla.com</string>
+          <string>MAC_10_10_1</string>
+          <string>pf-mac10-10-01.qa.mtv2.mozilla.com</string>
+          <string>MAC_10_7_64_1</string>
+          <string>pf-mac10-7-64-01.qa.mtv2.mozilla.com</string>
+          <string>MAC_10_8_1</string>
+          <string>pf-mac10-8-01.qa.mtv2.mozilla.com</string>
           <string>MAC_10_9_1</string>
-          <string>10.252.73.236</string>
-          <string>MAC_10_9_2</string>
-          <string>10.252.73.252</string>
+          <string>pf-mac10-9-01.qa.mtv2.mozilla.com</string>
+          <string>NETWORK_SIGNALLING_SERVER</string>
+          <string>http://10.252.73.50:8080/</string>
           <string>SIGNALLING_SERVER</string>
           <string>http://pf-steeplechase.qa.mtv2.mozilla.com:8080/</string>
+          <string>TREEHERDER_CREDENTIALS</string>
+          <string>/home/mozilla/testing/treeherder_config/treeherder-staging-credentials.json</string>
+          <string>TREEHERDER_URL</string>
+          <string>https://treeherder.allizom.org</string>
+          <string>TURN_TCP_1</string>
+          <string>192.168.100.20</string>
+          <string>TURN_TCP_2</string>
+          <string>172.16.200.20</string>
+          <string>TURN_UDP_1</string>
+          <string>192.168.100.10</string>
+          <string>TURN_UDP_2</string>
+          <string>172.16.200.10</string>
           <string>UBUNTU14_32_1</string>
-          <string>10.252.73.238</string>
-          <string>UBUNTU14_32_2</string>
-          <string>10.252.73.234</string>
+          <string>pf-ubuntu14-32-01.qa.mtv2.mozilla.com</string>
           <string>UBUNTU14_64_1</string>
           <string>pf-ubuntu14-64-01.qa.mtv2.mozilla.com</string>
-          <string>UBUNTU14_64_2</string>
-          <string>pf-ubuntu14-64-02.qa.mtv2.mozilla.com</string>
+          <string>WIN32_1</string>
+          <string>pf-win81-32-01.qa.mtv2.mozilla.com</string>
+          <string>WIN64_1</string>
+          <string>pf-win81-64-01.qa.mtv2.mozilla.com</string>
+          <string>WIN7_32_1</string>
+          <string>pf-win7-32-01.qa.mtv2.mozilla.com</string>
+          <string>WIN7_64_1</string>
+          <string>pf-win7-64-01.qa.mtv2.mozilla.com</string>
           <string>WIN81_32_1</string>
-          <string>10.252.73.254</string>
-          <string>WIN81_32_2</string>
-          <string>10.252.73.232</string>
+          <string>pf-win81-32-01.qa.mtv2.mozilla.com</string>
           <string>WIN81_64_1</string>
-          <string>10.252.73.248</string>
-          <string>WIN81_64_2</string>
-          <string>10.252.73.246</string>
+          <string>pf-win81-64-01.qa.mtv2.mozilla.com</string>
+          <string>WINXP_32_1</string>
+          <string>10.252.73.234</string>
+          <string>WINXP_64_1</string>
+          <string>10.252.73.252</string>
         </tree-map>
       </envVars>
     </hudson.slaves.EnvironmentVariablesNodeProperty>
