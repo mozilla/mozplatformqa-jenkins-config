@@ -8,7 +8,7 @@
     <string>jenkins.model.DownloadSettings$Warning</string>
     <string>hudson.node_monitors.MonitorMarkedNodeOffline</string>
   </disabledAdministrativeMonitors>
-  <version>1.616</version>
+  <version>1.623</version>
   <numExecutors>1</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -287,6 +287,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>trigger-firefox-aurora-win32</string>
         <string>trigger-firefox-aurora-win64</string>
         <string>trigger-firefox-beta-linux32</string>
         <string>trigger-firefox-beta-linux64</string>
@@ -466,6 +467,7 @@
         <string>mn-mse-youtube-long2-720-debug-central-win7_32_64</string>
         <string>mn-mse-youtube-medium1-60-beta-win_32_64</string>
         <string>mn-mse-youtube-medium1-60-nightly-win7_32_64</string>
+        <string>temp_test-mn-mse-youtube-basic-y-nightly-mac</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -595,6 +597,49 @@
       <includeRegex>temp.*</includeRegex>
       <recurse>false</recurse>
     </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>failed</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>youtube</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[23]/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <includeRegex>.*youtube.*</includeRegex>
+      <recurse>false</recurse>
+    </listView>
   </views>
   <primaryView>All</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
@@ -606,9 +651,9 @@
         <unserializable-parents/>
         <tree-map>
           <default>
-            <comparator class="hudson.util.CaseInsensitiveComparator"/>
+            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../../../../views/listView[23]/jobNames/comparator"/>
           </default>
-          <int>25</int>
+          <int>27</int>
           <string>LINUX32_1</string>
           <string>pf-ubuntu14-32-01.qa.mtv2.mozilla.com</string>
           <string>LINUX64_1</string>
@@ -627,6 +672,10 @@
           <string>http://10.252.73.50:8080/</string>
           <string>SIGNALLING_SERVER</string>
           <string>http://pf-steeplechase.qa.mtv2.mozilla.com:8080/</string>
+          <string>SUNNYDAY_LINUX_SLAVE_1</string>
+          <string>10.252.73.222</string>
+          <string>SUNNYDAY_LINUX_SLAVE_2</string>
+          <string>10.252.73.223</string>
           <string>TREEHERDER_CREDENTIALS</string>
           <string>/home/mozilla/testing/treeherder_config/treeherder-staging-credentials.json</string>
           <string>TREEHERDER_URL</string>
