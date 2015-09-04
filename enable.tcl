@@ -1,8 +1,12 @@
 #!/usr/bin/tclsh
 
-set job_files [glob jobs/*/config.xml]
+set job_files [glob jobs/webrtc-*nightly*/config.xml jobs/webrtc-*aurora*/config.xml]
 
 foreach file $job_files {
+    if {[string match {*beta*} $file]} {
+	puts "Skipping $file..."
+	continue
+    }
     puts -nonewline "Processing $file..."
     flush stdout
     set fd [open $file]

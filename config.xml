@@ -466,6 +466,7 @@
         <string>mn-mse-youtube-default-nightly-win_32_64</string>
         <string>mn-mse-youtube-long2-720-debug-central-win7_32_64</string>
         <string>mn-mse-youtube-medium1-60-beta-win_32_64</string>
+        <string>mn-mse-youtube-medium1-60-nightly-minecraft-win_32_64</string>
         <string>mn-mse-youtube-medium1-60-nightly-win7_32_64</string>
         <string>temp_test-mn-mse-youtube-basic-y-nightly-mac</string>
       </jobNames>
@@ -583,6 +584,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../listView[21]/jobNames/comparator"/>
+        <string>temp_test-mn-eme-netflix-nightly-win7_32_64</string>
       </jobNames>
       <jobFilters/>
       <columns>
