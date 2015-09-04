@@ -13,6 +13,8 @@ import os.path
 import re
 import jenkins
 
+from time import sleep
+
 class JobGenerator(object):
     def __init__(self, argv):
         self.argv = argv
@@ -120,6 +122,8 @@ class JobGenerator(object):
                         self.jenkins.reconfig_job(jobname, template)
                     else:
                         self.jenkins.create_job(jobname, template)
+                        # Inundating the jenkins server causes it to raise
+                        sleep(1)
 
             csvfile.close()
 
