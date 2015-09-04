@@ -63,7 +63,7 @@
   <triggers>
     <jenkins.triggers.ReverseBuildTrigger>
       <spec></spec>
-      <upstreamProjects>XXTRIGGERSXX,XXEXPANDXX</upstreamProjects>
+      <upstreamProjects>XXTRIGGERSXX</upstreamProjects>
       <threshold>
         <name>SUCCESS</name>
         <ordinal>0</ordinal>

@@ -22,4 +22,5 @@ queue.xml
 scm-sync-configuration
 updates
 .idea
+*.pyc
 
