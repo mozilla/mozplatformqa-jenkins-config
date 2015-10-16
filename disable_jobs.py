@@ -8,7 +8,7 @@ import argparse
 import jenkins
 import sys
 
-parser = argparse.ArgumentParser(description='Enable jobs in a jenkins instance')
+parser = argparse.ArgumentParser(description='Disable jobs in a jenkins instance')
 parser.add_argument('--regexp', required=True)
 parser.add_argument('--jenkins-host', required=True, dest='host')
 args = parser.parse_args(sys.argv[1:])
