@@ -14,7 +14,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>http://github.com/sydvicious/mozplatformqa-jenkins.git</url>
+        <url>http://github.com/mozilla/mozplatformqa-jenkins.git</url>
         <credentialsId>337b81f4-cb01-4443-a97f-d11e9457957f</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
